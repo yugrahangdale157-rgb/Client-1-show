@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shri Associate | Land Survey, Layout &amp; Architectural Planning</title>
+<meta name="description" content="Shri Associate — precision land surveys, layout plans, architectural plans and NA land documentation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230B2B1F%22/><text x=%2250%22 y=%2268%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22%23C6A15B%22 font-family=%22serif%22>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ================= TOKENS ================= */
+:root{
+  --ink:#14201a;
+  --paper:#F7F5EF;
+  --paper-2:#EFEBDF;
+  --green-950:#081A12;
+  --green-900:#0B2B1F;
+  --green-800:#0F3D2A;
+  --green-700:#155238;
+  --brass:#C6A15B;
+  --brass-light:#DEC488;
+  --brass-dim:#8f7440;
+  --line:rgba(198,161,91,0.28);
+  --glass:rgba(247,245,239,0.06);
+  --glass-strong:rgba(247,245,239,0.1);
+  --shadow:0 20px 60px -20px rgba(8,26,18,0.45);
+  --radius:2px;
+  --serif:'Playfair Display', Georgia, serif;
+  --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+[data-theme="light"]{
+  --ink:#14201a;
+  --bg:var(--paper);
+  --bg-2:var(--paper-2);
+  --surface:#ffffff;
+  --surface-2:#fbfaf6;
+  --text:#1a2620;
+  --text-dim:#54615a;
+  --text-faint:#8a938c;
+  --border:rgba(20,32,26,0.1);
+  --header-bg:rgba(247,245,239,0.82);
+  --card-glass:rgba(255,255,255,0.55);
+}
+[data-theme="dark"]{
+  --bg:var(--green-950);
+  --bg-2:var(--green-900);
+  --surface:#0e2419;
+  --surface-2:#10291d;
+  --text:#EDEAE0;
+  --text-dim:#B9C2BB;
+  --text-faint:#7c8b82;
+  --border:rgba(198,161,91,0.16);
+  --header-bg:rgba(8,26,18,0.82);
+  --card-glass:rgba(255,255,255,0.04);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  transition:background .4s ease, color .4s ease;
+  overflow-x:hidden;
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+}
+a{color:inherit; text-decoration:none;}
+button{font-family:inherit; cursor:pointer;}
+img{max-width:100%; display:block;}
+.container{max-width:1200px; margin:0 auto; padding:0 24px;}
+.eyebrow{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--brass); display:flex; align-items:center; gap:10px; margin-bottom:18px; font-weight:500;
+}
+.eyebrow::before{content:''; width:26px; height:1px; background:var(--brass);}
+h1,h2,h3,h4{font-family:var(--serif); font-weight:600; line-height:1.12; letter-spacing:-.01em; color:var(--text);}
+h2{font-size:clamp(28px,4vw,42px);}
+h3{font-size:22px;}
+p{color:var(--text-dim); line-height:1.7;}
+.section{padding:110px 0;}
+@media (max-width:768px){.section{padding:72px 0;}}
+.section-head{max-width:640px; margin-bottom:56px;}
+.section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+.section-head.center .eyebrow{justify-content:center;}
+.section-head.center .eyebrow::before{display:none;}
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; gap:10px; padding:15px 30px; font-size:14px; font-weight:600;
+  letter-spacing:.02em; border-radius:var(--radius); border:1px solid transparent; transition:all .3s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--brass); color:var(--green-950);}
+.btn-primary:hover{background:var(--brass-light); transform:translateY(-2px); box-shadow:0 10px 30px -8px rgba(198,161,91,0.5);}
+.btn-outline{border-color:var(--border); color:var(--text); background:var(--glass);}
+.btn-outline:hover{border-color:var(--brass); color:var(--brass);}
+.btn-sm{padding:10px 18px; font-size:12.5px;}
+
+/* ================= HEADER ================= */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:var(--header-bg); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border); transition:all .3s ease;
+}
+.nav-wrap{display:flex; align-items:center; justify-content:space-between; height:82px;}
+.logo{display:flex; align-items:center; gap:12px; font-family:var(--serif); font-size:20px; font-weight:600; color:var(--text);}
+.logo-mark{
+  width:42px; height:42px; border:1px solid var(--brass); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; position:relative; flex-shrink:0;
+}
+.logo-mark::before{content:''; position:absolute; inset:6px; border:1px solid var(--brass); border-radius:50%; opacity:.5;}
+.logo-mark span{font-family:var(--serif); color:var(--brass); font-size:16px; font-weight:700;}
+.logo small{display:block; font-family:var(--mono); font-size:9px; letter-spacing:.18em; color:var(--text-faint); font-weight:400; text-transform:uppercase; margin-top:2px;}
+nav ul{display:flex; gap:38px; list-style:none;}
+nav a{font-size:14px; font-weight:500; color:var(--text-dim); position:relative; padding:6px 0; transition:color .25s;}
+nav a::after{content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--brass); transition:width .25s;}
+nav a:hover, nav a.active{color:var(--text);}
+nav a:hover::after, nav a.active::after{width:100%;}
+.header-actions{display:flex; align-items:center; gap:14px;}
+.icon-btn{
+  width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--border); background:var(--glass); transition:all .25s; color:var(--text-dim);
+}
+.icon-btn:hover{border-color:var(--brass); color:var(--brass);}
+.hamburger{display:none; flex-direction:column; gap:5px; width:38px; height:38px; align-items:center; justify-content:center; border:1px solid var(--border); border-radius:50%; background:var(--glass);}
+.hamburger span{width:16px; height:1.5px; background:var(--text); transition:all .3s;}
+.mobile-nav{
+  display:none; position:fixed; top:82px; left:0; right:0; bottom:0; background:var(--bg); z-index:999;
+  padding:32px 24px; overflow-y:auto;
+}
+.mobile-nav.open{display:block;}
+.mobile-nav ul{list-style:none; display:flex; flex-direction:column; gap:4px;}
+.mobile-nav a{display:block; padding:18px 4px; font-family:var(--serif); font-size:24px; border-bottom:1px solid var(--border); color:var(--text);}
+@media (max-width:900px){
+  nav{display:none;}
+  .hamburger{display:flex;}
+}
+
+/* ================= HERO ================= */
+.hero{
+  position:relative; min-height:100vh; display:flex; align-items:center; padding-top:82px;
+  background:var(--green-950); color:#EDEAE0; overflow:hidden;
+}
+#contourCanvas{position:absolute; inset:0; width:100%; height:100%; opacity:.55;}
+.hero::after{
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(11,43,31,0) 0%, rgba(8,26,18,0.75) 75%),
+             linear-gradient(180deg, rgba(8,26,18,0.2) 0%, rgba(8,26,18,0.95) 100%);
+  pointer-events:none;
+}
+.hero-inner{position:relative; z-index:2; padding:80px 0 100px;}
+.hero-coord{
+  font-family:var(--mono); font-size:12px; color:var(--brass); letter-spacing:.08em; margin-bottom:24px;
+  display:flex; gap:24px; flex-wrap:wrap; opacity:.85;
+}
+.hero h1{
+  font-size:clamp(38px,6.4vw,74px); color:#F7F5EF; max-width:900px; margin-bottom:26px;
+  animation:heroLine 1s cubic-bezier(.16,1,.3,1) both;
+}
+.hero h1 em{font-style:italic; color:var(--brass);}
+.hero p.lead{font-size:18px; max-width:560px; color:#C8D0CA; margin-bottom:40px; animation:heroLine 1s .15s cubic-bezier(.16,1,.3,1) both;}
+.hero-ctas{display:flex; gap:16px; flex-wrap:wrap; animation:heroLine 1s .3s cubic-bezier(.16,1,.3,1) both;}
+@keyframes heroLine{from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);}}
+.hero-stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border);
+  margin-top:80px; position:relative; z-index:2; animation:heroLine 1s .45s cubic-bezier(.16,1,.3,1) both;
+}
+.hero-stat{background:rgba(8,26,18,0.6); backdrop-filter:blur(8px); padding:28px 20px; text-align:left;}
+.hero-stat .num{font-family:var(--serif); font-size:clamp(26px,3vw,38px); color:var(--brass-light); font-weight:600; display:flex; align-items:baseline; gap:2px;}
+.hero-stat .label{font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:#9DAAA2; text-transform:uppercase; margin-top:6px;}
+@media (max-width:768px){.hero-stats{grid-template-columns:repeat(2,1fr);}}
+.scroll-cue{
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column;
+  align-items:center; gap:8px; color:#9DAAA2; font-family:var(--mono); font-size:10px; letter-spacing:.15em;
+}
+.scroll-cue .line{width:1px; height:36px; background:linear-gradient(var(--brass), transparent); animation:scrollDown 2s ease-in-out infinite;}
+@keyframes scrollDown{0%{transform:scaleY(0); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 51%{transform-origin:bottom;} 100%{transform:scaleY(0); transform-origin:bottom;}}
+
+/* ================= REVEAL ================= */
+.reveal{opacity:0; transform:translateY(32px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1; transform:translateY(0);}
+
+/* ================= SERVICES PREVIEW ================= */
+.services-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border);}
+@media (max-width:960px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.services-grid{grid-template-columns:1fr;}}
+.service-card{
+  background:var(--surface); padding:40px 28px; transition:all .35s ease; position:relative; overflow:hidden; cursor:pointer;
+}
+.service-card::before{content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--brass); transform:scaleX(0); transform-origin:left; transition:transform .4s ease;}
+.service-card:hover{background:var(--surface-2); transform:translateY(-4px);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-icon{width:46px; height:46px; margin-bottom:24px; color:var(--brass);}
+.service-card .tag{font-family:var(--mono); font-size:10.5px; color:var(--text-faint); letter-spacing:.1em;}
+.service-card h3{margin:10px 0 12px; font-size:19px;}
+.service-card p{font-size:14px; margin-bottom:18px;}
+.service-card .more{font-size:13px; font-weight:600; color:var(--brass); display:flex; align-items:center; gap:6px;}
+
+/* ================= WHY CHOOSE US ================= */
+.why-wrap{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center;}
+@media (max-width:900px){.why-wrap{grid-template-columns:1fr; gap:40px;}}
+.why-visual{
+  aspect-ratio:4/5; border:1px solid var(--border); position:relative; background:var(--surface-2);
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.why-list{list-style:none; display:flex; flex-direction:column;}
+.why-item{display:flex; gap:20px; padding:26px 0; border-bottom:1px solid var(--border);}
+.why-item:first-child{padding-top:0;}
+.why-num{font-family:var(--mono); font-size:13px; color:var(--brass); flex-shrink:0; padding-top:4px;}
+.why-item h4{font-size:17px; margin-bottom:8px;}
+.why-item p{font-size:14.5px;}
+
+/* ================= PROCESS ================= */
+.process-strip{background:var(--bg-2);}
+.process-track{display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;}
+@media (max-width:900px){.process-track{grid-template-columns:1fr; gap:36px;}}
+.process-step{position:relative; padding-right:24px;}
+.process-step:not(:last-child)::after{
+  content:''; position:absolute; top:26px; right:0; width:100%; height:1px; background:var(--border);
+}
+@media (max-width:900px){.process-step:not(:last-child)::after{display:none;}}
+.process-step .pnum{
+  font-family:var(--serif); font-size:15px; color:var(--brass); width:52px; height:52px; border:1px solid var(--brass);
+  border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:24px; background:var(--bg-2);
+  position:relative; z-index:1;
+}
+.process-step h4{font-size:17px; margin-bottom:10px;}
+.process-step p{font-size:14px;}
+
+/* ================= PROJECTS ================= */
+.filter-row{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px;}
+.filter-btn{
+  padding:9px 18px; border:1px solid var(--border); border-radius:30px; font-size:13px; font-weight:500;
+  color:var(--text-dim); background:transparent; transition:all .25s;
+}
+.filter-btn:hover{border-color:var(--brass);}
+.filter-btn.active{background:var(--green-900); color:#F7F5EF; border-color:var(--green-900);}
+[data-theme="dark"] .filter-btn.active{background:var(--brass); color:var(--green-950); border-color:var(--brass);}
+.projects-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+@media (max-width:960px){.projects-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.projects-grid{grid-template-columns:1fr;}}
+.project-card{border:1px solid var(--border); background:var(--surface); overflow:hidden; cursor:pointer; transition:all .35s ease;}
+.project-card:hover{transform:translateY(-6px); box-shadow:var(--shadow); border-color:var(--brass);}
+.project-thumb{
+  aspect-ratio:4/3; position:relative; overflow:hidden; background:linear-gradient(135deg,var(--green-800),var(--green-900));
+}
+.project-thumb svg{width:100%; height:100%;}
+.project-thumb .badge{
+  position:absolute; top:14px; left:14px; background:rgba(8,26,18,0.75); backdrop-filter:blur(6px); color:var(--brass-light);
+  font-family:var(--mono); font-size:10px; letter-spacing:.08em; padding:6px 12px; border:1px solid rgba(198,161,91,0.3); text-transform:uppercase;
+}
+.project-info{padding:22px 24px;}
+.project-info h4{font-size:17px; margin-bottom:6px;}
+.project-info .loc{font-family:var(--mono); font-size:12px; color:var(--text-faint); display:flex; align-items:center; gap:6px;}
+
+/* ================= TESTIMONIALS ================= */
+.testi-strip{background:var(--green-950); color:#EDEAE0; position:relative; overflow:hidden;}
+.testi-strip .section-head h2{color:#F7F5EF;}
+.testi-track{display:flex; gap:24px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:12px; scrollbar-width:none;}
+.testi-track::-webkit-scrollbar{display:none;}
+.testi-card{
+  flex:0 0 min(420px,86vw); scroll-snap-align:start; background:rgba(255,255,255,0.04); border:1px solid rgba(198,161,91,0.18);
+  padding:34px; backdrop-filter:blur(10px);
+}
+.testi-quote{font-family:var(--serif); font-style:italic; font-size:18px; line-height:1.6; color:#EDEAE0; margin-bottom:24px;}
+.testi-person{display:flex; align-items:center; gap:14px;}
+.testi-avatar{width:44px; height:44px; border-radius:50%; background:var(--brass); color:var(--green-950); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:700;}
+.testi-person .name{font-size:14.5px; font-weight:600; color:#F7F5EF;}
+.testi-person .role{font-family:var(--mono); font-size:11.5px; color:#9DAAA2;}
+
+/* ================= CONTACT CTA (home) ================= */
+.cta-band{
+  background:linear-gradient(120deg,var(--green-900),var(--green-800)); position:relative; overflow:hidden;
+  padding:80px 0; text-align:center;
+}
+.cta-band h2{color:#F7F5EF; margin-bottom:16px;}
+.cta-band p{color:#C8D0CA; max-width:520px; margin:0 auto 34px;}
+.cta-actions{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+
+/* ================= FOOTER ================= */
+footer{background:var(--green-950); color:#B9C2BB; padding:80px 0 0;}
+.footer-grid{display:grid; grid-template-columns:1.6fr 1fr 1fr 1.2fr; gap:50px; padding-bottom:60px; border-bottom:1px solid rgba(198,161,91,0.14);}
+@media (max-width:860px){.footer-grid{grid-template-columns:1fr 1fr; row-gap:40px;}}
+@media (max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+.footer-grid h5{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass); margin-bottom:20px;}
+.footer-grid ul{list-style:none; display:flex; flex-direction:column; gap:12px;}
+.footer-grid a, .footer-grid p{font-size:14px; color:#B9C2BB;}
+.footer-grid a:hover{color:var(--brass-light);}
+.footer-logo p{margin-top:16px; font-size:14px; max-width:280px; color:#9DAAA2;}
+.footer-social{display:flex; gap:10px; margin-top:22px;}
+.footer-bottom{display:flex; justify-content:space-between; align-items:center; padding:26px 0; font-size:12.5px; color:#7c8b82; flex-wrap:wrap; gap:10px;}
+
+/* ================= FLOATING BUTTONS ================= */
+.floating-col{position:fixed; right:22px; bottom:22px; z-index:900; display:flex; flex-direction:column; gap:12px; align-items:center;}
+.fab{
+  width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px -8px rgba(8,26,18,0.5);
+  transition:transform .25s ease;
+}
+.fab:hover{transform:scale(1.08);}
+.fab-whatsapp{background:#25D366; color:#fff;}
+.fab-top{background:var(--surface); color:var(--text); border:1px solid var(--border); width:44px; height:44px; opacity:0; pointer-events:none; transition:all .3s;}
+.fab-top.show{opacity:1; pointer-events:auto;}
+
+/* ================= PAGE HERO (inner pages) ================= */
+.page-hero{
+  background:var(--green-950); padding:170px 0 80px; position:relative; overflow:hidden;
+}
+.page-hero .eyebrow{color:var(--brass);}
+.page-hero h1{color:#F7F5EF; font-size:clamp(32px,5vw,54px);}
+.page-hero p{color:#B9C2BB; max-width:560px; margin-top:16px; font-size:16px;}
+.breadcrumb{font-family:var(--mono); font-size:11.5px; color:#8DA093; display:flex; gap:8px; margin-bottom:20px;}
+.breadcrumb a:hover{color:var(--brass-light);}
+
+/* ================= PAGES: generic content blocks ================= */
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
+@media (max-width:860px){.two-col{grid-template-columns:1fr;}}
+.stat-block{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:50px;}
+@media (max-width:640px){.stat-block{grid-template-columns:1fr;}}
+.stat-block .cell{background:var(--surface); padding:34px 28px;}
+.stat-block .num{font-family:var(--serif); font-size:34px; color:var(--brass); font-weight:600;}
+.stat-block .lbl{font-family:var(--mono); font-size:11.5px; color:var(--text-faint); margin-top:6px; letter-spacing:.06em;}
+
+.team-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-top:20px;}
+@media (max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:520px){.team-grid{grid-template-columns:1fr;}}
+.team-card{text-align:center;}
+.team-photo{aspect-ratio:1/1; border-radius:50%; background:var(--surface-2); border:1px solid var(--border); margin-bottom:18px; display:flex; align-items:center; justify-content:center; color:var(--brass); position:relative; overflow:hidden;}
+.team-card h4{font-size:16px; margin-bottom:4px;}
+.team-card .role{font-family:var(--mono); font-size:11.5px; color:var(--text-faint);}
+
+/* Services page detail cards */
+.service-detail{border:1px solid var(--border); background:var(--surface); margin-bottom:28px; overflow:hidden;}
+.service-detail-head{display:flex; justify-content:space-between; align-items:center; padding:30px 32px; cursor:pointer; gap:20px;}
+.service-detail-head-left{display:flex; align-items:center; gap:20px;}
+.service-detail-head .sicon{width:44px; height:44px; color:var(--brass); flex-shrink:0;}
+.service-detail-head h3{font-size:20px;}
+.service-detail-head .chev{color:var(--brass); transition:transform .3s; flex-shrink:0;}
+.service-detail.open .chev{transform:rotate(180deg);}
+.service-detail-body{max-height:0; overflow:hidden; transition:max-height .4s ease;}
+.service-detail.open .service-detail-body{max-height:2000px;}
+.service-detail-inner{padding:0 32px 34px; display:grid; grid-template-columns:1.2fr 1fr; gap:36px;}
+@media (max-width:760px){.service-detail-inner{grid-template-columns:1fr;}}
+.service-detail-inner h5{font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--brass); margin-bottom:14px;}
+.benefit-list{list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:26px;}
+.benefit-list li{display:flex; gap:10px; font-size:14.5px; color:var(--text-dim);}
+.benefit-list li svg{color:var(--brass); flex-shrink:0; margin-top:3px;}
+.faq-item{border-top:1px solid var(--border); padding:14px 0;}
+.faq-item summary{font-size:14.5px; font-weight:600; cursor:pointer; list-style:none; display:flex; justify-content:space-between;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item p{margin-top:10px; font-size:13.5px;}
+.service-visual{aspect-ratio:4/3; background:linear-gradient(135deg,var(--green-800),var(--green-900)); border:1px solid var(--border);}
+
+/* Gallery */
+.gallery-grid{columns:4 220px; column-gap:16px;}
+@media (max-width:640px){.gallery-grid{columns:2 160px;}}
+.gallery-item{break-inside:avoid; margin-bottom:16px; position:relative; overflow:hidden; border:1px solid var(--border); cursor:pointer; background:var(--surface-2);}
+.gallery-item svg{width:100%; display:block; transition:transform .4s ease;}
+.gallery-item:hover svg{transform:scale(1.06);}
+.gallery-item .gcap{position:absolute; inset:0; background:linear-gradient(to top, rgba(8,26,18,0.85), transparent 55%); display:flex; align-items:flex-end; padding:16px; opacity:0; transition:opacity .3s;}
+.gallery-item:hover .gcap{opacity:1;}
+.gallery-item .gcap span{font-family:var(--mono); font-size:11px; color:var(--brass-light); text-transform:uppercase; letter-spacing:.06em;}
+
+.lightbox{position:fixed; inset:0; background:rgba(8,26,18,0.94); z-index:2000; display:none; align-items:center; justify-content:center; padding:40px;}
+.lightbox.open{display:flex;}
+.lightbox-content{max-width:900px; width:100%;}
+.lightbox-content svg{width:100%; border:1px solid var(--brass);}
+.lightbox-close{position:absolute; top:24px; right:28px; color:#F7F5EF; width:44px; height:44px; border:1px solid rgba(255,255,255,0.2); border-radius:50%; display:flex; align-items:center; justify-content:center;}
+.lightbox-cap{color:#EDEAE0; font-family:var(--mono); font-size:12.5px; margin-top:16px; text-align:center;}
+
+/* Contact page */
+.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px;}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+.contact-info-card{display:flex; gap:18px; padding:24px 0; border-bottom:1px solid var(--border);}
+.contact-info-card:first-child{padding-top:0;}
+.contact-info-card .cicon{width:22px; height:22px; color:var(--brass); flex-shrink:0; margin-top:2px;}
+.contact-info-card h5{font-size:14.5px; margin-bottom:5px; font-family:var(--sans); font-weight:600;}
+.contact-info-card p{font-size:14px;}
+.contact-quick{display:flex; gap:12px; margin-top:28px; flex-wrap:wrap;}
+.map-box{aspect-ratio:16/10; border:1px solid var(--border); margin-top:32px; overflow:hidden;}
+.map-box iframe{width:100%; height:100%; border:0; filter:grayscale(.3) contrast(1.05);}
+
+.form-group{margin-bottom:20px;}
+.form-group label{display:block; font-size:12.5px; font-weight:600; margin-bottom:8px; color:var(--text);}
+.form-group input, .form-group textarea{
+  width:100%; padding:14px 16px; background:var(--surface); border:1px solid var(--border); color:var(--text);
+  font-family:var(--sans); font-size:14.5px; border-radius:var(--radius); transition:border-color .25s;
+}
+.form-group input:focus, .form-group textarea:focus{outline:none; border-color:var(--brass);}
+.form-group textarea{resize:vertical; min-height:120px;}
+.contact-form{background:var(--surface); border:1px solid var(--border); padding:36px;}
+.form-msg{padding:14px 16px; font-size:13.5px; margin-bottom:18px; display:none; font-family:var(--mono);}
+.form-msg.success{display:block; background:rgba(21,82,56,0.12); border:1px solid var(--green-700); color:var(--green-700);}
+[data-theme="dark"] .form-msg.success{color:#7fd6a8;}
+
+/* ============ PRELOADER ============ */
+#preloader{position:fixed; inset:0; background:var(--green-950); z-index:9999; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:20px; transition:opacity .6s ease, visibility .6s ease;}
+#preloader.hide{opacity:0; visibility:hidden;}
+.pre-mark{width:60px; height:60px; border:1px solid var(--brass); border-radius:50%; display:flex; align-items:center; justify-content:center; position:relative;}
+.pre-mark::before{content:''; position:absolute; inset:-6px; border:1px solid rgba(198,161,91,0.3); border-radius:50%; animation:preSpin 2s linear infinite;}
+.pre-mark span{color:var(--brass); font-family:var(--serif); font-size:22px; font-weight:700;}
+@keyframes preSpin{to{transform:rotate(360deg);}}
+.pre-label{font-family:var(--mono); font-size:10px; letter-spacing:.2em; color:#8DA093; text-transform:uppercase;}
+
+/* ============ Sections helper ============ */
+.bg-2{background:var(--bg-2);}
+.hidden-page{display:none;}
+.visible-page{display:block;}
+
+/* ============ ADMIN ============ */
+#adminRoot{display:none;}
+.admin-body{background:#0d1512; min-height:100vh; color:#EDEAE0; font-family:var(--sans);}
+.admin-login-wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; position:relative; overflow:hidden;}
+.admin-login-card{width:100%; max-width:400px; background:rgba(255,255,255,0.04); border:1px solid rgba(198,161,91,0.2); padding:44px 38px; position:relative; z-index:2; backdrop-filter:blur(10px);}
+.admin-login-card .logo{justify-content:center; margin-bottom:8px; color:#F7F5EF;}
+.admin-login-card .sub{text-align:center; font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:#8DA093; text-transform:uppercase; margin-bottom:32px;}
+.admin-login-card .form-group label{color:#C8D0CA;}
+.admin-login-card .form-group input{background:rgba(255,255,255,0.05); border-color:rgba(198,161,91,0.25); color:#F7F5EF;}
+.admin-login-card .btn-primary{width:100%; justify-content:center; margin-top:8px;}
+.admin-hint{margin-top:22px; font-size:12px; color:#7c8b82; text-align:center; font-family:var(--mono); line-height:1.6;}
+.admin-error{background:rgba(200,60,60,0.12); border:1px solid rgba(200,60,60,0.4); color:#ff9b9b; padding:12px 14px; font-size:13px; margin-bottom:18px; display:none; font-family:var(--mono);}
+
+.admin-shell{display:grid; grid-template-columns:250px 1fr; min-height:100vh;}
+@media (max-width:900px){.admin-shell{grid-template-columns:1fr;}}
+.admin-sidebar{background:#081a12; border-right:1px solid rgba(198,161,91,0.15); padding:26px 18px; display:flex; flex-direction:column;}
+@media (max-width:900px){.admin-sidebar{position:fixed; left:-280px; top:0; bottom:0; width:250px; z-index:1500; transition:left .3s; overflow-y:auto;} .admin-sidebar.open{left:0;}}
+.admin-sidebar .logo{color:#F7F5EF; margin-bottom:36px; padding:0 10px;}
+.admin-nav{list-style:none; display:flex; flex-direction:column; gap:2px; flex:1;}
+.admin-nav button{
+  width:100%; text-align:left; background:none; border:none; color:#B9C2BB; padding:12px 14px; font-size:13.5px;
+  font-weight:500; border-radius:4px; display:flex; align-items:center; gap:12px; transition:all .2s;
+}
+.admin-nav button svg{width:17px; height:17px; flex-shrink:0; opacity:.8;}
+.admin-nav button:hover{background:rgba(255,255,255,0.05); color:#F7F5EF;}
+.admin-nav button.active{background:rgba(198,161,91,0.14); color:var(--brass-light);}
+.admin-logout{margin-top:20px; padding-top:20px; border-top:1px solid rgba(198,161,91,0.15);}
+.admin-logout button{width:100%; padding:11px 14px; background:none; border:1px solid rgba(198,161,91,0.25); color:#C8D0CA; font-size:13px; border-radius:4px; display:flex; align-items:center; gap:10px; justify-content:center;}
+.admin-logout button:hover{border-color:var(--brass); color:var(--brass-light);}
+.admin-main{padding:30px 36px 80px; overflow-x:hidden;}
+@media (max-width:900px){.admin-main{padding:20px;}}
+.admin-topbar{display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; gap:16px; flex-wrap:wrap;}
+.admin-topbar h2{color:#F7F5EF; font-size:24px;}
+.admin-menu-toggle{display:none; width:40px; height:40px; border:1px solid rgba(198,161,91,0.25); border-radius:6px; align-items:center; justify-content:center; color:#F7F5EF; background:none;}
+@media (max-width:900px){.admin-menu-toggle{display:flex;}}
+.admin-panel-section{display:none;}
+.admin-panel-section.active{display:block;}
+
+.stat-cards{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-bottom:36px;}
+@media (max-width:900px){.stat-cards{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:520px){.stat-cards{grid-template-columns:1fr;}}
+.stat-card{background:rgba(255,255,255,0.03); border:1px solid rgba(198,161,91,0.15); padding:22px; border-radius:6px;}
+.stat-card .n{font-family:var(--serif); font-size:30px; color:var(--brass-light); font-weight:600;}
+.stat-card .l{font-family:var(--mono); font-size:11px; color:#8DA093; margin-top:6px; text-transform:uppercase; letter-spacing:.06em;}
+
+.admin-card{background:rgba(255,255,255,0.03); border:1px solid rgba(198,161,91,0.15); border-radius:6px; padding:26px; margin-bottom:22px;}
+.admin-card h3{color:#F7F5EF; font-size:16px; margin-bottom:20px;}
+.admin-table{width:100%; border-collapse:collapse; font-size:13.5px;}
+.admin-table th{text-align:left; font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:#8DA093; padding:10px 12px; border-bottom:1px solid rgba(198,161,91,0.15);}
+.admin-table td{padding:12px; border-bottom:1px solid rgba(255,255,255,0.05); color:#D8DED9; vertical-align:middle;}
+.admin-table tr:hover td{background:rgba(255,255,255,0.02);}
+.pill{display:inline-flex; padding:4px 10px; border-radius:20px; font-size:11px; font-family:var(--mono);}
+.pill.on{background:rgba(21,82,56,0.3); color:#7fd6a8;}
+.pill.off{background:rgba(120,120,120,0.2); color:#aaa;}
+.pill.new{background:rgba(198,161,91,0.25); color:var(--brass-light);}
+.row-actions{display:flex; gap:8px;}
+.icon-action{width:30px; height:30px; border-radius:5px; border:1px solid rgba(198,161,91,0.2); display:flex; align-items:center; justify-content:center; color:#B9C2BB; background:none;}
+.icon-action:hover{border-color:var(--brass); color:var(--brass-light);}
+.icon-action.danger:hover{border-color:#e07a7a; color:#e07a7a;}
+
+.admin-grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+@media (max-width:700px){.admin-grid-2{grid-template-columns:1fr;}}
+.admin-form-group{margin-bottom:16px;}
+.admin-form-group label{display:block; font-size:12px; font-weight:600; color:#C8D0CA; margin-bottom:7px; font-family:var(--mono); letter-spacing:.03em; text-transform:uppercase;}
+.admin-form-group input, .admin-form-group textarea, .admin-form-group select{
+  width:100%; padding:11px 13px; background:rgba(255,255,255,0.04); border:1px solid rgba(198,161,91,0.2); color:#F7F5EF;
+  font-family:var(--sans); font-size:13.5px; border-radius:5px;
+}
+.admin-form-group input:focus, .admin-form-group textarea:focus, .admin-form-group select:focus{outline:none; border-color:var(--brass);}
+.admin-form-group textarea{min-height:90px; resize:vertical;}
+.file-drop{
+  border:1.5px dashed rgba(198,161,91,0.3); border-radius:6px; padding:26px; text-align:center; cursor:pointer; transition:all .2s;
+  color:#8DA093; font-size:13px;
+}
+.file-drop:hover{border-color:var(--brass); color:var(--brass-light);}
+.file-drop svg{margin:0 auto 10px;}
+.thumb-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
+.thumb-row .th{width:64px; height:64px; border-radius:5px; overflow:hidden; border:1px solid rgba(198,161,91,0.2); position:relative;}
+.thumb-row .th svg{width:100%; height:100%;}
+.thumb-row .th button{position:absolute; top:2px; right:2px; width:18px; height:18px; background:rgba(0,0,0,0.6); border-radius:50%; color:#fff; font-size:11px; border:none; line-height:1;}
+.btn-admin{padding:11px 20px; border-radius:5px; font-size:13px; font-weight:600; border:none; display:inline-flex; align-items:center; gap:8px;}
+.btn-admin.primary{background:var(--brass); color:#0d1512;}
+.btn-admin.primary:hover{background:var(--brass-light);}
+.btn-admin.ghost{background:none; border:1px solid rgba(198,161,91,0.25); color:#C8D0CA;}
+.btn-admin.ghost:hover{border-color:var(--brass); color:var(--brass-light);}
+.form-actions{display:flex; gap:10px; margin-top:22px; justify-content:flex-end;}
+
+.toast{position:fixed; bottom:26px; right:26px; background:#0e2419; border:1px solid var(--brass); color:#EDEAE0; padding:14px 20px; border-radius:6px; font-size:13.5px; z-index:5000; display:flex; align-items:center; gap:10px; transform:translateY(20px); opacity:0; transition:all .3s; pointer-events:none;}
+.toast.show{transform:translateY(0); opacity:1;}
+
+.admin-msg-row{cursor:pointer;}
+.admin-msg-row.unread td{color:#F7F5EF; font-weight:600;}
+.msg-modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:3000; display:none; align-items:center; justify-content:center; padding:24px;}
+.msg-modal-overlay.open{display:flex;}
+.msg-modal{background:#0e2419; border:1px solid rgba(198,161,91,0.25); border-radius:8px; max-width:560px; width:100%; padding:30px;}
+.msg-modal h4{color:#F7F5EF; margin-bottom:4px;}
+.msg-modal .meta{font-family:var(--mono); font-size:11.5px; color:#8DA093; margin-bottom:20px;}
+.msg-modal .body-text{color:#D8DED9; font-size:14px; line-height:1.7; margin-bottom:24px; background:rgba(255,255,255,0.03); padding:16px; border-radius:6px;}
+
+.empty-state{text-align:center; padding:50px 20px; color:#8DA093;}
+.empty-state svg{margin:0 auto 16px; opacity:.4;}
+.empty-state p{font-size:13.5px;}
+
+.color-swatches{display:flex; gap:10px; margin-top:8px;}
+.swatch{width:32px; height:32px; border-radius:50%; border:2px solid rgba(255,255,255,0.15); cursor:pointer;}
+.swatch.active{border-color:#fff;}
+</style>
+</head>
+<body data-theme="light">
+
+<!-- ============ PRELOADER ============ -->
+<div id="preloader">
+  <div class="pre-mark"><span>S</span></div>
+  <div class="pre-label">Surveying the site…</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PUBLIC SITE ROOT -->
+<!-- ============================================================ -->
+<div id="publicRoot">
+
+<header>
+  <div class="container nav-wrap">
+    <a href="#" class="logo" onclick="goTo('home');return false;">
+      <span class="logo-mark"><span>S</span></span>
+      <span>Shri Associate<small>Survey &amp; Architecture</small></span>
+    </a>
+    <nav>
+      <ul id="navLinks">
+        <li><a href="#" data-page="home">Home</a></li>
+        <li><a href="#" data-page="about">About</a></li>
+        <li><a href="#" data-page="services">Services</a></li>
+        <li><a href="#" data-page="projects">Projects</a></li>
+        <li><a href="#" data-page="gallery">Gallery</a></li>
+        <li><a href="#" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="themeIcon"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#" data-page="home">Home</a></li>
+      <li><a href="#" data-page="about">About</a></li>
+      <li><a href="#" data-page="services">Services</a></li>
+      <li><a href="#" data-page="projects">Projects</a></li>
+      <li><a href="#" data-page="gallery">Gallery</a></li>
+      <li><a href="#" data-page="contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ================= HOME PAGE ================= -->
+<div id="page-home" class="visible-page">
+
+  <section class="hero">
+    <canvas id="contourCanvas"></canvas>
+    <div class="container hero-inner">
+      <div class="hero-coord">
+        <span>N 21°14&#39;32&quot; · E 79°05&#39;18&quot;</span>
+        <span>EST. PRECISION SURVEYING</span>
+      </div>
+      <h1>Every boundary,<br>measured with <em>certainty.</em></h1>
+      <p class="lead" id="heroSubtitle">Shri Associate delivers accurate land surveys, layout plans, architectural drawings and NA land documentation — trusted by landowners, developers and architects.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-primary" onclick="goTo('contact');return false;">Request a Survey
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+        <a href="#" class="btn btn-outline" onclick="goTo('services');return false;" style="color:#EDEAE0;border-color:rgba(237,234,224,0.25);">View Services</a>
+      </div>
+      <div class="hero-stats" id="heroStats">
+        <div class="hero-stat"><div class="num">18<span style="font-size:20px;">+</span></div><div class="label">Years Active</div></div>
+        <div class="hero-stat"><div class="num">640<span style="font-size:20px;">+</span></div><div class="label">Surveys Completed</div></div>
+        <div class="hero-stat"><div class="num">92<span style="font-size:20px;">+</span></div><div class="label">NA Approvals</div></div>
+        <div class="hero-stat"><div class="num">100<span style="font-size:20px;">%</span></div><div class="label">Field Verified</div></div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>SCROLL</span><div class="line"></div></div>
+  </section>
+
+  <!-- Services preview -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">What We Do</div>
+        <h2>Four disciplines. One standard of precision.</h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="services-grid reveal" id="homeServicesGrid"></div>
+    </div>
+  </section>
+
+  <!-- Why choose us -->
+  <section class="section bg-2">
+    <div class="container why-wrap">
+      <div class="why-visual reveal">
+        <svg viewBox="0 0 400 500" width="100%" height="100%" style="position:absolute;inset:0;">
+          <rect width="400" height="500" fill="var(--surface-2)"/>
+          <g stroke="var(--brass)" stroke-width="1" fill="none" opacity="0.55">
+            <path d="M-20 460 Q 100 420 200 450 T 420 400"/>
+            <path d="M-20 400 Q 100 350 200 390 T 420 340"/>
+            <path d="M-20 340 Q 100 290 200 320 T 420 270"/>
+            <path d="M-20 280 Q 100 230 200 260 T 420 200"/>
+            <path d="M-20 220 Q 100 170 200 200 T 420 140"/>
+          </g>
+          <circle cx="150" cy="230" r="4" fill="var(--brass)"/>
+          <circle cx="270" cy="330" r="4" fill="var(--brass)"/>
+          <line x1="150" y1="230" x2="270" y2="330" stroke="var(--brass)" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="160" y="225" font-family="monospace" font-size="10" fill="var(--brass)">A</text>
+          <text x="280" y="325" font-family="monospace" font-size="10" fill="var(--brass)">B</text>
+        </svg>
+      </div>
+      <div>
+        <div class="eyebrow reveal">Why Shri Associate</div>
+        <h2 class="reveal" style="margin-bottom:36px;">Field-verified data. No shortcuts, no guesswork.</h2>
+        <ul class="why-list reveal">
+          <li class="why-item"><span class="why-num">01</span><div><h4>Licensed &amp; Certified Surveyors</h4><p>Every measurement is taken and signed off by government-registered land surveyors.</p></div></li>
+          <li class="why-item"><span class="why-num">02</span><div><h4>Modern Instrumentation</h4><p>Total stations and GPS-based equipment for millimeter-level accuracy on every plot.</p></div></li>
+          <li class="why-item"><span class="why-num">03</span><div><h4>End-to-End Documentation</h4><p>From layout plans to NA conversion paperwork — we handle the full compliance chain.</p></div></li>
+          <li class="why-item"><span class="why-num">04</span><div><h4>Transparent Timelines</h4><p>Clear milestones communicated at every stage, with no hidden delays.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section process-strip">
+    <div class="container">
+      <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+        <div class="eyebrow">How We Work</div>
+        <h2>From first site visit to final approval</h2>
+      </div>
+      <div class="process-track reveal">
+        <div class="process-step"><div class="pnum">01</div><h4>Site Assessment</h4><p>We visit the plot, review existing records and understand your requirement.</p></div>
+        <div class="process-step"><div class="pnum">02</div><h4>Field Survey</h4><p>Precise boundary and topographic measurement using total station &amp; GPS.</p></div>
+        <div class="process-step"><div class="pnum">03</div><h4>Plan Preparation</h4><p>Layout and architectural drawings prepared to local authority standards.</p></div>
+        <div class="process-step"><div class="pnum">04</div><h4>Approval &amp; Handover</h4><p>Documentation filed for approval; final certified plans handed over to you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Recent Work</div>
+        <h2>Featured Projects</h2>
+      </div>
+      <div class="projects-grid reveal" id="homeProjectsGrid"></div>
+      <div style="text-align:center;margin-top:44px;">
+        <a href="#" class="btn btn-outline reveal" onclick="goTo('projects');return false;">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testi-strip">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" style="color:var(--brass);">Client Feedback</div>
+        <h2>What our clients say</h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="testi-track reveal" id="homeTestiTrack"></div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="eyebrow reveal" style="justify-content:center;color:var(--brass-light);"><span></span></div>
+      <h2 class="reveal">Ready to survey your land?</h2>
+      <p class="reveal">Get in touch for a site visit and detailed quotation — usually within 24 hours.</p>
+      <div class="cta-actions reveal">
+        <a href="#" class="btn btn-primary" onclick="goTo('contact');return false;">Contact Us</a>
+        <a href="#" class="btn btn-outline" id="ctaWhatsapp" style="color:#EDEAE0;border-color:rgba(237,234,224,0.3);">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= ABOUT PAGE ================= -->
+<div id="page-about" class="hidden-page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" onclick="goTo('home');return false;">Home</a><span>/</span><span style="color:var(--brass);">About</span></div>
+      <div class="eyebrow">Who We Are</div>
+      <h1>Two decades of measuring the ground truth.</h1>
+      <p>Shri Associate is a land survey and architectural planning practice built on field accuracy and regulatory expertise.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container two-col">
+      <div class="reveal">
+        <div class="eyebrow">Our Story</div>
+        <h2 style="margin-bottom:22px;">Built on the plot, not the brochure.</h2>
+        <p style="margin-bottom:16px;">Shri Associate began as a small survey practice and has grown into a full-service land survey and architectural planning firm, serving landowners, developers, and government bodies.</p>
+        <p style="margin-bottom:16px;">Every project starts on-site. Our surveyors walk the boundary, verify records against physical markers, and only then move to documentation — because a plan is only as good as the data behind it.</p>
+        <p>Today our team handles land surveys, layout design, architectural planning and NA (Non-Agricultural) land conversion documentation under one roof.</p>
+      </div>
+      <div class="reveal">
+        <div class="why-visual" style="aspect-ratio:1/1;">
+          <svg viewBox="0 0 400 400" width="100%" height="100%" style="position:absolute;inset:0;">
+            <rect width="400" height="400" fill="var(--surface-2)"/>
+            <polygon points="60,320 90,90 260,60 340,260 230,340" fill="none" stroke="var(--brass)" stroke-width="1.5"/>
+            <circle cx="60" cy="320" r="4" fill="var(--brass)"/><circle cx="90" cy="90" r="4" fill="var(--brass)"/>
+            <circle cx="260" cy="60" r="4" fill="var(--brass)"/><circle cx="340" cy="260" r="4" fill="var(--brass)"/><circle cx="230" cy="340" r="4" fill="var(--brass)"/>
+            <text x="30" y="345" font-family="monospace" font-size="10" fill="var(--text-faint)">P1</text>
+            <text x="95" y="80" font-family="monospace" font-size="10" fill="var(--text-faint)">P2</text>
+            <text x="265" y="50" font-family="monospace" font-size="10" fill="var(--text-faint)">P3</text>
+            <text x="345" y="255" font-family="monospace" font-size="10" fill="var(--text-faint)">P4</text>
+            <text x="200" y="360" font-family="monospace" font-size="10" fill="var(--text-faint)">P5</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="stat-block reveal" id="aboutStats"></div>
+    </div>
+  </section>
+  <section class="section bg-2">
+    <div class="container two-col">
+      <div class="admin-card reveal" style="background:var(--surface);border-color:var(--border);">
+        <div class="eyebrow">Mission</div>
+        <p style="color:var(--text);font-size:16px;line-height:1.7;">To deliver land survey and architectural documentation that landowners, architects and authorities can rely on without question — accurate, timely, and fully compliant.</p>
+      </div>
+      <div class="admin-card reveal" style="background:var(--surface);border-color:var(--border);">
+        <div class="eyebrow">Vision</div>
+        <p style="color:var(--text);font-size:16px;line-height:1.7;">To be the most trusted survey and planning partner in the region, known for field precision and dependable turnaround on every engagement.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <div class="eyebrow">Our People</div>
+        <h2>Professional Team</h2>
+      </div>
+      <div class="team-grid reveal" id="teamGrid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SERVICES PAGE ================= -->
+<div id="page-services" class="hidden-page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" onclick="goTo('home');return false;">Home</a><span>/</span><span style="color:var(--brass);">Services</span></div>
+      <div class="eyebrow">What We Offer</div>
+      <h1>Precision at every stage of the land process.</h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container" id="servicesDetailList"></div>
+  </section>
+</div>
+
+<!-- ================= PROJECTS PAGE ================= -->
+<div id="page-projects" class="hidden-page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" onclick="goTo('home');return false;">Home</a><span>/</span><span style="color:var(--brass);">Projects</span></div>
+      <div class="eyebrow">Our Work</div>
+      <h1>Completed &amp; ongoing projects</h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="filter-row" id="projectFilters"></div>
+      <div class="projects-grid" id="projectsFullGrid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= GALLERY PAGE ================= -->
+<div id="page-gallery" class="hidden-page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" onclick="goTo('home');return false;">Home</a><span>/</span><span style="color:var(--brass);">Gallery</span></div>
+      <div class="eyebrow">Visual Record</div>
+      <h1>Site &amp; project gallery</h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="filter-row" id="galleryFilters"></div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT PAGE ================= -->
+<div id="page-contact" class="hidden-page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" onclick="goTo('home');return false;">Home</a><span>/</span><span style="color:var(--brass);">Contact</span></div>
+      <div class="eyebrow">Get In Touch</div>
+      <h1>Let's talk about your land.</h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container contact-grid">
+      <div>
+        <div id="contactInfoList"></div>
+        <div class="contact-quick" id="contactQuickBtns"></div>
+        <div class="map-box">
+          <iframe id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Nagpur,Maharashtra&output=embed"></iframe>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form">
+          <h3 style="margin-bottom:22px;">Send an inquiry</h3>
+          <div class="form-msg success" id="formSuccessMsg">✓ Message sent. We'll get back to you within 24 hours.</div>
+          <form id="contactForm">
+            <div class="form-group"><label>Full Name</label><input type="text" id="cf-name" required></div>
+            <div class="form-group"><label>Phone Number</label><input type="tel" id="cf-phone" required></div>
+            <div class="form-group"><label>Email Address</label><input type="email" id="cf-email" required></div>
+            <div class="form-group"><label>Message</label><textarea id="cf-message" required placeholder="Tell us about your plot and requirement..."></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox-content">
+    <div id="lightboxImg"></div>
+    <div class="lightbox-cap" id="lightboxCap"></div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <div class="logo" style="color:#F7F5EF;">
+          <span class="logo-mark"><span>S</span></span>
+          <span>Shri Associate<small style="color:#8DA093;">Survey &amp; Architecture</small></span>
+        </div>
+        <p>Precision land surveys, layout plans, architectural drawings and NA land documentation.</p>
+        <div class="footer-social" id="footerSocial"></div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#" data-page="home">Home</a></li>
+          <li><a href="#" data-page="about">About Us</a></li>
+          <li><a href="#" data-page="projects">Projects</a></li>
+          <li><a href="#" data-page="gallery">Gallery</a></li>
+          <li><a href="#" data-page="contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul id="footerServices"></ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul id="footerContact"></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="footerYear"></span> Shri Associate. All rights reserved.</span>
+      <span>Designed for precision.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= FLOATING BUTTONS ================= -->
+<div class="floating-col">
+  <button class="fab fab-top" id="backTop" title="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+  </button>
+  <a class="fab fab-whatsapp" id="fabWhatsapp" title="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.12h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.35c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.2-8.25 8.2zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.99-1.22-.74-.65-1.23-1.46-1.38-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.06 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+  </a>
+</div>
+
+</div><!-- /publicRoot -->
+
+<!-- ============================================================ -->
+<!-- ADMIN PANEL ROOT -->
+<!-- ============================================================ -->
+<div id="adminRoot">
+
+  <!-- Login Screen -->
+  <div id="adminLoginScreen" class="admin-body">
+    <div class="admin-login-wrap">
+      <canvas id="loginContour" style="position:absolute;inset:0;width:100%;height:100%;opacity:.4;"></canvas>
+      <div class="admin-login-card">
+        <div class="logo"><span class="logo-mark"><span>S</span></span><span>Shri Associate</span></div>
+        <div class="sub">Admin Control Panel</div>
+        <div class="admin-error" id="loginError">Incorrect username or password.</div>
+        <form id="adminLoginForm">
+          <div class="form-group"><label>Username</label><input type="text" id="admin-user" autocomplete="username" required></div>
+          <div class="form-group"><label>Password</label><input type="password" id="admin-pass" autocomplete="current-password" required></div>
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+        <div class="admin-hint">DEMO CREDENTIALS<br>user: admin &nbsp;·&nbsp; pass: shri2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="adminDashboard" class="admin-body" style="display:none;">
+    <div class="admin-shell">
+      <aside class="admin-sidebar" id="adminSidebar">
+        <div class="logo"><span class="logo-mark"><span>S</span></span><span>Shri Associate</span></div>
+        <ul class="admin-nav" id="adminNav">
+          <li><button data-panel="overview" class="active"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>Overview</button></li>
+          <li><button data-panel="services"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg>Services</button></li>
+          <li><button data-panel="projects"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"></path><path d="M3 9h18M9 21V9"></path></svg>Projects</button></li>
+          <li><button data-panel="gallery"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>Gallery</button></li>
+          <li><button data-panel="testimonials"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Testimonials</button></li>
+          <li><button data-panel="messages"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"></path><path d="M22 6l-10 7L2 6"></path></svg>Messages<span id="msgBadge" style="margin-left:auto;background:var(--brass);color:#0d1512;font-size:10px;padding:2px 7px;border-radius:10px;font-family:var(--mono);"></span></button></li>
+          <li><button data-panel="homepage"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>Homepage</button></li>
+          <li><button data-panel="contactinfo"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Contact Info</button></li>
+          <li><button data-panel="seo"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>SEO Settings</button></li>
+        </ul>
+        <div class="admin-logout">
+          <button id="adminLogoutBtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><path d="M16 17l5-5-5-5M21 12H9"></path></svg>Log Out</button>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <div class="admin-topbar">
+          <button class="admin-menu-toggle" id="adminMenuToggle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+          </button>
+          <h2 id="adminPanelTitle">Overview</h2>
+          <a href="#" onclick="window.__exitAdmin();return false;" class="btn-admin ghost">← View Site</a>
+        </div>
+
+        <!-- OVERVIEW -->
+        <section class="admin-panel-section active" id="panel-overview">
+          <div class="stat-cards" id="overviewStats"></div>
+          <div class="admin-card">
+            <h3>Recent Inquiries</h3>
+            <table class="admin-table" id="overviewMsgTable"><thead><tr><th>Name</th><th>Message</th><th>Status</th></tr></thead><tbody></tbody></table>
+          </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="admin-panel-section" id="panel-services">
+          <div class="admin-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+              <h3 style="margin:0;">All Services</h3>
+              <button class="btn-admin primary" onclick="openServiceForm()">+ Add Service</button>
+            </div>
+            <table class="admin-table"><thead><tr><th>Service</th><th>Tag</th><th>Status</th><th>Actions</th></tr></thead><tbody id="servicesTableBody"></tbody></table>
+          </div>
+          <div class="admin-card" id="serviceFormCard" style="display:none;"></div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="admin-panel-section" id="panel-projects">
+          <div class="admin-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+              <h3 style="margin:0;">All Projects</h3>
+              <button class="btn-admin primary" onclick="openProjectForm()">+ Add Project</button>
+            </div>
+            <table class="admin-table"><thead><tr><th>Project</th><th>Category</th><th>Location</th><th>Date</th><th>Actions</th></tr></thead><tbody id="projectsTableBody"></tbody></table>
+          </div>
+          <div class="admin-card" id="projectFormCard" style="display:none;"></div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="admin-panel-section" id="panel-gallery">
+          <div class="admin-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+              <h3 style="margin:0;">Gallery Images</h3>
+              <button class="btn-admin primary" onclick="openGalleryForm()">+ Add Image</button>
+            </div>
+            <div id="galleryAdminGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;"></div>
+          </div>
+          <div class="admin-card" id="galleryFormCard" style="display:none;"></div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="admin-panel-section" id="panel-testimonials">
+          <div class="admin-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+              <h3 style="margin:0;">Testimonials</h3>
+              <button class="btn-admin primary" onclick="openTestiForm()">+ Add Testimonial</button>
+            </div>
+            <table class="admin-table"><thead><tr><th>Client</th><th>Role</th><th>Quote</th><th>Actions</th></tr></thead><tbody id="testiTableBody"></tbody></table>
+          </div>
+          <div class="admin-card" id="testiFormCard" style="display:none;"></div>
+        </section>
+
+        <!-- MESSAGES -->
+        <section class="admin-panel-section" id="panel-messages">
+          <div class="admin-card">
+            <h3>Contact Inquiries</h3>
+            <table class="admin-table"><thead><tr><th>Name</th><th>Contact</th><th>Message</th><th>Status</th><th>Actions</th></tr></thead><tbody id="messagesTableBody"></tbody></table>
+          </div>
+        </section>
+
+        <!-- HOMEPAGE -->
+        <section class="admin-panel-section" id="panel-homepage">
+          <div class="admin-card">
+            <h3>Hero Section</h3>
+            <div class="admin-form-group"><label>Hero Title</label><input type="text" id="hp-title"></div>
+            <div class="admin-form-group"><label>Hero Subtitle</label><textarea id="hp-subtitle"></textarea></div>
+            <h3 style="margin-top:26px;">Statistics Strip</h3>
+            <div class="admin-grid-2" id="hp-stats-grid"></div>
+            <div class="form-actions"><button class="btn-admin primary" onclick="saveHomepage()">Save Changes</button></div>
+          </div>
+        </section>
+
+        <!-- CONTACT INFO -->
+        <section class="admin-panel-section" id="panel-contactinfo">
+          <div class="admin-card">
+            <h3>Business Contact Details</h3>
+            <div class="admin-grid-2">
+              <div class="admin-form-group"><label>Office Address</label><input type="text" id="ci-address"></div>
+              <div class="admin-form-group"><label>Contractor Name</label><input type="text" id="ci-contractor"></div>
+              <div class="admin-form-group"><label>Phone Number</label><input type="text" id="ci-phone"></div>
+              <div class="admin-form-group"><label>WhatsApp Number</label><input type="text" id="ci-whatsapp"></div>
+              <div class="admin-form-group"><label>Email</label><input type="text" id="ci-email"></div>
+              <div class="admin-form-group"><label>Google Maps Embed URL</label><input type="text" id="ci-maps"></div>
+            </div>
+            <div class="form-actions"><button class="btn-admin primary" onclick="saveContactInfo()">Save Changes</button></div>
+          </div>
+        </section>
+
+        <!-- SEO -->
+        <section class="admin-panel-section" id="panel-seo">
+          <div class="admin-card">
+            <h3>SEO Settings</h3>
+            <div class="admin-form-group"><label>Meta Title</label><input type="text" id="seo-title"></div>
+            <div class="admin-form-group"><label>Meta Description</label><textarea id="seo-desc"></textarea></div>
+            <div class="admin-form-group"><label>Keywords (comma separated)</label><input type="text" id="seo-keywords"></div>
+            <div class="form-actions"><button class="btn-admin primary" onclick="saveSeo()">Save Changes</button></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Message detail modal -->
+  <div class="msg-modal-overlay" id="msgModalOverlay">
+    <div class="msg-modal">
+      <h4 id="msgModalName"></h4>
+      <div class="meta" id="msgModalMeta"></div>
+      <div class="body-text" id="msgModalBody"></div>
+      <div class="form-actions">
+        <button class="btn-admin ghost" onclick="closeMsgModal()">Close</button>
+        <button class="btn-admin ghost" style="border-color:#e07a7a;color:#e07a7a;" onclick="deleteMessageFromModal()">Delete</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /adminRoot -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ======================================================================
+   SHRI ASSOCIATE — single-file site + demo admin panel
+   Persistence: localStorage acts as a stand-in for a real database.
+   Admin login is a CLIENT-SIDE DEMO ONLY — not real authentication.
+   ====================================================================== */
+
+const STORE_KEY = 'shriAssociateData_v1';
+const SESSION_KEY = 'shriAssociateAdminSession_v1';
+
+/* ---------- default seed data ---------- */
+function defaultData(){
+  return {
+    seo:{ title:"Shri Associate | Land Survey, Layout & Architectural Planning", desc:"Shri Associate — precision land surveys, layout plans, architectural plans and NA land documentation.", keywords:"land survey, layout plan, architectural plan, NA land, non-agricultural land, surveyor" },
+    homepage:{
+      title:"Every boundary, measured with certainty.",
+      subtitle:"Shri Associate delivers accurate land surveys, layout plans, architectural drawings and NA land documentation — trusted by landowners, developers and architects.",
+      stats:[{num:"18",suffix:"+",label:"Years Active"},{num:"640",suffix:"+",label:"Surveys Completed"},{num:"92",suffix:"+",label:"NA Approvals"},{num:"100",suffix:"%",label:"Field Verified"}]
+    },
+    contact:{
+      address:"Plot No. 14, Civil Lines, Nagpur, Maharashtra 440001",
+      contractor:"Rajesh Shrivastava",
+      phone:"+91 98765 43210",
+      whatsapp:"+91 98765 43210",
+      email:"info@shriassociate.in",
+      maps:"https://www.google.com/maps?q=Nagpur,Maharashtra&output=embed"
+    },
+    services:[
+      {id:1,name:"Land Surveys",tag:"BOUNDARY & TOPOGRAPHIC",visible:true,desc:"Precise boundary demarcation and topographic surveys using total station and GPS instrumentation, giving you a legally defensible record of your land.",benefits:["Millimeter-accurate boundary marking","Topographic contour mapping","Government-format survey reports","Dispute-resolution ready documentation"],faqs:[{q:"How long does a land survey take?",a:"Most residential plots are surveyed within 2-4 working days, depending on terrain and plot size."},{q:"Do you provide certified reports?",a:"Yes, every survey is signed off by a licensed surveyor and delivered in the required government format."}]},
+      {id:2,name:"Layout Plans",tag:"SUBDIVISION DESIGN",visible:true,desc:"Efficient, compliant plot layout and subdivision plans for residential and commercial development, balancing usable area with regulatory setbacks.",benefits:["Optimized plot subdivision","Road & infrastructure planning","Authority-compliant setbacks","3D layout visualization on request"],faqs:[{q:"Can you handle large township layouts?",a:"Yes, we've delivered layouts ranging from small residential plots to multi-acre township subdivisions."},{q:"Are layouts approved by local authorities?",a:"We prepare all layouts to match current municipal and town-planning guidelines for smooth approval."}]},
+      {id:3,name:"Architectural Plans",tag:"BUILDING DESIGN",visible:true,desc:"Detailed architectural drawings for residential and commercial structures, from floor plans to elevation and structural coordination.",benefits:["Floor plans & elevations","Structural coordination drawings","Municipal submission drawings","Interior space planning"],faqs:[{q:"Do you design for both homes and commercial buildings?",a:"Yes, our architectural team handles residential, commercial and mixed-use projects."},{q:"Can plans be revised after initial submission?",a:"Yes, revisions are included as part of the standard architectural plan package until final approval."}]},
+      {id:4,name:"NA Land Documentation",tag:"NON-AGRICULTURAL CONVERSION",visible:true,desc:"Complete Non-Agricultural (NA) land conversion documentation and filing, guiding your plot through the regulatory process end-to-end.",benefits:["Land-use conversion filing","Document collection & verification","Liaison with revenue authorities","Status tracking until approval"],faqs:[{q:"What is NA land conversion?",a:"It's the legal process of converting agricultural land to non-agricultural use, required before residential or commercial construction."},{q:"How long does NA approval typically take?",a:"Timelines vary by jurisdiction, but we keep you updated at every stage of the filing process."}]}
+    ],
+    projects:[
+      {id:1,name:"Greenfield Residency Layout",category:"Layout Plan",location:"Nagpur, MH",date:"2025-11",desc:"42-plot residential layout with internal road network and drainage planning.",seed:1},
+      {id:2,name:"Riverside NA Conversion",category:"NA Land",location:"Wardha, MH",date:"2025-09",desc:"Full NA documentation and approval for an 8-acre riverside parcel.",seed:2},
+      {id:3,name:"Heritage Villa Elevation",category:"Architectural Plan",location:"Nagpur, MH",date:"2025-07",desc:"Architectural plans and elevation design for a private residence.",seed:3},
+      {id:4,name:"Industrial Plot Boundary Survey",category:"Land Survey",location:"Butibori, MH",date:"2025-05",desc:"Topographic and boundary survey for a 12-acre industrial plot.",seed:4},
+      {id:5,name:"Sunrise Township Layout",category:"Layout Plan",location:"Amravati, MH",date:"2025-03",desc:"Township-scale subdivision plan for 120 residential plots.",seed:5},
+      {id:6,name:"Commercial Complex Plans",category:"Architectural Plan",location:"Nagpur, MH",date:"2024-12",desc:"Four-storey commercial complex architectural drawing set.",seed:6}
+    ],
+    gallery:[
+      {id:1,category:"Field Survey",seed:11},{id:2,category:"Layout Plan",seed:12},{id:3,category:"Architecture",seed:13},
+      {id:4,category:"Field Survey",seed:14},{id:5,category:"NA Documentation",seed:15},{id:6,category:"Architecture",seed:16},
+      {id:7,category:"Layout Plan",seed:17},{id:8,category:"Field Survey",seed:18}
+    ],
+    testimonials:[
+      {id:1,name:"Anil Deshmukh",role:"Property Developer",quote:"Shri Associate surveyed our 6-acre parcel in three days flat and the report was accepted by the authority without a single query."},
+      {id:2,name:"Priya Kulkarni",role:"Homeowner",quote:"The architectural plans for our house were detailed and the team was patient with every revision we asked for."},
+      {id:3,name:"Vikram Rao",role:"Landowner",quote:"Our NA conversion had been stuck for months elsewhere. Shri Associate got it filed and approved in one clean pass."}
+    ],
+    messages:[
+      {id:1,name:"Sunita Patil",phone:"+91 90123 45678",email:"sunita.p@example.com",message:"Need a boundary survey for a 2-acre agricultural plot near Katol Road. Please share availability.",date:"2026-07-16",read:true},
+      {id:2,name:"Manoj Iyer",phone:"+91 89234 56712",email:"manoj.iyer@example.com",message:"Looking for NA conversion documentation for a plot I recently purchased. Can someone call me?",date:"2026-07-17",read:false},
+      {id:3,name:"Farhan Sheikh",phone:"+91 91234 56789",email:"farhan.s@example.com",message:"Interested in getting a layout plan prepared for subdividing a 3-acre plot into residential lots.",date:"2026-07-18",read:false}
+    ]
+  };
+}
+
+function loadData(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  const d = defaultData();
+  saveData(d);
+  return d;
+}
+function saveData(d){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(d)); }catch(e){}
+}
+let DATA = loadData();
+
+/* ---------- SVG placeholder generator (deterministic "photo" look) ---------- */
+function placeholderSVG(seed, w, h, label){
+  seed = seed || 1;
+  function rand(n){ const x = Math.sin(seed*999 + n*77.7) * 10000; return x - Math.floor(x); }
+  const hueA = 150 + rand(1)*20;
+  const c1 = `hsl(${hueA},32%,${16+rand(2)*8}%)`;
+  const c2 = `hsl(${hueA+10},28%,${8+rand(3)*6}%)`;
+  let lines = '';
+  for(let i=0;i<5;i++){
+    const y1 = rand(i+10)*h, y2 = rand(i+20)*h;
+    lines += `<path d="M0 ${y1} Q ${w/2} ${y2} ${w} ${y1-30}" stroke="#C6A15B" stroke-width="1" fill="none" opacity="${0.18+rand(i+30)*0.15}"/>`;
+  }
+  const dots = `<circle cx="${w*0.3}" cy="${h*0.4}" r="3" fill="#C6A15B" opacity="0.6"/><circle cx="${w*0.7}" cy="${h*0.6}" r="3" fill="#C6A15B" opacity="0.6"/>`;
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs><linearGradient id="g${seed}" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient></defs>
+    <rect width="${w}" height="${h}" fill="url(#g${seed})"/>
+    ${lines}${dots}
+    <line x1="${w*0.3}" y1="${h*0.4}" x2="${w*0.7}" y2="${h*0.6}" stroke="#C6A15B" stroke-width="0.75" stroke-dasharray="3 3" opacity="0.5"/>
+    ${label ? `<text x="16" y="${h-16}" font-family="monospace" font-size="11" fill="#DEC488" opacity="0.85">${label}</text>` : ''}
+  </svg>`;
+}
+
+/* ---------- icons for services ---------- */
+const SERVICE_ICONS = {
+  "Land Surveys": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="100%" height="100%"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M2 12h4M18 12h4"></path><path d="M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"></path></svg>`,
+  "Layout Plans": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="100%" height="100%"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>`,
+  "Architectural Plans": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="100%" height="100%"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"></path></svg>`,
+  "NA Land Documentation": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="100%" height="100%"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M9 13h6M9 17h6M9 9h1"></path></svg>`
+};
+function serviceIcon(name){ return SERVICE_ICONS[name] || SERVICE_ICONS["Land Surveys"]; }
+
+/* ============================================================
+   CONTOUR CANVAS ANIMATION (hero background)
+   ============================================================ */
+function initContourCanvas(canvasId, opts){
+  const canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w,h,dpr;
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio||1, 2);
+    w = canvas.clientWidth; h = canvas.clientHeight;
+    canvas.width = w*dpr; canvas.height = h*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  const lines = [];
+  const count = 9;
+  for(let i=0;i<count;i++){
+    lines.push({ base: (i/count), amp: 40+Math.random()*50, speed: 0.15+Math.random()*0.15, phase: Math.random()*Math.PI*2 });
+  }
+  let t=0;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    lines.forEach((ln,i)=>{
+      ctx.beginPath();
+      const yBase = ln.base*h;
+      for(let x=0;x<=w;x+=14){
+        const y = yBase + Math.sin(x*0.006 + t*ln.speed + ln.phase)*ln.amp*0.4 + Math.sin(x*0.002+ln.phase)*ln.amp*0.3;
+        if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle = `rgba(198,161,91,${0.10+ (i%3)*0.03})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+    if(!reduceMotion){ t += 0.4; requestAnimationFrame(draw); }
+  }
+  draw();
+}
+
+/* ============================================================
+   RENDER FUNCTIONS — PUBLIC SITE
+   ============================================================ */
+function renderAll(){
+  document.title = DATA.seo.title;
+  let metaDesc = document.querySelector('meta[name="description"]');
+  if(metaDesc) metaDesc.setAttribute('content', DATA.seo.desc);
+
+  // Hero
+  document.querySelector('.hero h1').innerHTML = escapeAllowEm(DATA.homepage.title);
+  document.getElementById('heroSubtitle').textContent = DATA.homepage.subtitle;
+  const statsWrap = document.getElementById('heroStats');
+  statsWrap.innerHTML = DATA.homepage.stats.map(s=>`
+    <div class="hero-stat"><div class="num">${s.num}<span style="font-size:20px;">${s.suffix||''}</span></div><div class="label">${s.label}</div></div>
+  `).join('');
+
+  // Services preview (home)
+  document.getElementById('homeServicesGrid').innerHTML = DATA.services.filter(s=>s.visible).map(s=>`
+    <div class="service-card" onclick="goTo('services')">
+      <div class="service-icon">${serviceIcon(s.name)}</div>
+      <div class="tag">${s.tag}</div>
+      <h3>${s.name}</h3>
+      <p>${truncate(s.desc,90)}</p>
+      <div class="more">Learn more
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+    </div>
+  `).join('');
+
+  // Services detail page
+  document.getElementById('servicesDetailList').innerHTML = DATA.services.filter(s=>s.visible).map((s,idx)=>`
+    <div class="service-detail ${idx===0?'open':''}">
+      <div class="service-detail-head" onclick="toggleServiceDetail(this)">
+        <div class="service-detail-head-left">
+          <div class="sicon">${serviceIcon(s.name)}</div>
+          <div><div class="eyebrow" style="margin-bottom:4px;">${s.tag}</div><h3>${s.name}</h3></div>
+        </div>
+        <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="service-detail-body">
+        <div class="service-detail-inner">
+          <div>
+            <h5>Overview</h5>
+            <p style="margin-bottom:22px;">${s.desc}</p>
+            <h5>Benefits</h5>
+            <ul class="benefit-list">
+              ${s.benefits.map(b=>`<li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>${b}</li>`).join('')}
+            </ul>
+            <h5>Frequently Asked</h5>
+            ${s.faqs.map(f=>`<details class="faq-item"><summary>${f.q}<span>+</span></summary><p>${f.a}</p></details>`).join('')}
+          </div>
+          <div class="service-visual">${placeholderSVG(s.id+40, 400, 320, s.name)}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Home featured projects (first 3)
+  document.getElementById('homeProjectsGrid').innerHTML = DATA.projects.slice(0,3).map(p=>projectCardHTML(p)).join('');
+
+  // Projects full page + filters
+  renderProjectsPage();
+
+  // Gallery
+  renderGalleryPage();
+
+  // Testimonials
+  document.getElementById('homeTestiTrack').innerHTML = DATA.testimonials.map(t=>`
+    <div class="testi-card">
+      <p class="testi-quote">"${t.quote}"</p>
+      <div class="testi-person">
+        <div class="testi-avatar">${t.name.charAt(0)}</div>
+        <div><div class="name">${t.name}</div><div class="role">${t.role}</div></div>
+      </div>
+    </div>
+  `).join('');
+
+  // About page stats (reuse homepage stats + years)
+  document.getElementById('aboutStats').innerHTML = DATA.homepage.stats.map(s=>`
+    <div class="cell"><div class="num">${s.num}${s.suffix||''}</div><div class="lbl">${s.label.toUpperCase()}</div></div>
+  `).join('');
+
+  // Team
+  const team = [
+    {name:"Rajesh Shrivastava", role:"Principal Surveyor & Founder"},
+    {name:"Sunil Kadam", role:"Senior Land Surveyor"},
+    {name:"Meera Joshi", role:"Lead Architect"},
+    {name:"Ashok Bansode", role:"NA Documentation Specialist"}
+  ];
+  document.getElementById('teamGrid').innerHTML = team.map(m=>`
+    <div class="team-card">
+      <div class="team-photo"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+      <h4>${m.name}</h4><div class="role">${m.role}</div>
+    </div>
+  `).join('');
+
+  // Contact page
+  renderContactPage();
+
+  // Footer
+  document.getElementById('footerServices').innerHTML = DATA.services.filter(s=>s.visible).map(s=>`<li><a href="#" onclick="goTo('services');return false;">${s.name}</a></li>`).join('');
+  document.getElementById('footerContact').innerHTML = `
+    <li>${DATA.contact.address}</li>
+    <li><a href="tel:${DATA.contact.phone.replace(/\s/g,'')}">${DATA.contact.phone}</a></li>
+    <li><a href="mailto:${DATA.contact.email}">${DATA.contact.email}</a></li>
+    <li>WhatsApp: ${DATA.contact.whatsapp}</li>
+  `;
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+  document.getElementById('footerSocial').innerHTML = ['facebook','instagram','linkedin'].map(s=>`
+    <a href="#" class="icon-btn" style="border-color:rgba(198,161,91,0.2);color:#B9C2BB;" title="${s}">${socialIcon(s)}</a>
+  `).join('');
+
+  // WhatsApp fab + CTA
+  const waLink = `https://wa.me/${DATA.contact.whatsapp.replace(/[^0-9]/g,'')}`;
+  document.getElementById('fabWhatsapp').href = waLink;
+  document.getElementById('ctaWhatsapp').href = waLink;
+}
+
+function truncate(str,n){ return str.length>n ? str.slice(0,n).trim()+'…' : str; }
+function escapeAllowEm(str){ return str; }
+
+function socialIcon(name){
+  const icons = {
+    facebook:`<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>`,
+    instagram:`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>`,
+    linkedin:`<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.9 3.9 6 2.5 6S0 4.9 0 3.5 1.1 1 2.5 1s2.48 1.1 2.48 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2h.05c.53-1 1.83-2.05 3.77-2.05C19 7.95 20 10 20 13.5V23h-4v-8.4c0-2-0.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.45V23h-4V8z"/></svg>`
+  };
+  return icons[name]||'';
+}
+
+function projectCardHTML(p){
+  return `
+    <div class="project-card" onclick="event.preventDefault(); openLightboxFromProject(${p.id})">
+      <div class="project-thumb">${placeholderSVG(p.seed, 400, 300, p.category)}<span class="badge">${p.category}</span></div>
+      <div class="project-info">
+        <h4>${p.name}</h4>
+        <div class="loc">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          ${p.location} · ${formatDate(p.date)}
+        </div>
+      </div>
+    </div>`;
+}
+function formatDate(d){
+  if(!d) return '';
+  const [y,m] = d.split('-');
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${months[parseInt(m,10)-1]} ${y}`;
+}
+
+let activeProjectFilter = 'All';
+function renderProjectsPage(){
+  const cats = ['All', ...new Set(DATA.projects.map(p=>p.category))];
+  document.getElementById('projectFilters').innerHTML = cats.map(c=>`
+    <button class="filter-btn ${c===activeProjectFilter?'active':''}" onclick="setProjectFilter('${c.replace(/'/g,"\\'")}')">${c}</button>
+  `).join('');
+  const list = activeProjectFilter==='All' ? DATA.projects : DATA.projects.filter(p=>p.category===activeProjectFilter);
+  document.getElementById('projectsFullGrid').innerHTML = list.map(p=>projectCardHTML(p)).join('') || emptyStateHTML('No projects in this category yet.');
+}
+function setProjectFilter(c){ activeProjectFilter = c; renderProjectsPage(); }
+
+let activeGalleryFilter = 'All';
+function renderGalleryPage(){
+  const cats = ['All', ...new Set(DATA.gallery.map(g=>g.category))];
+  document.getElementById('galleryFilters').innerHTML = cats.map(c=>`
+    <button class="filter-btn ${c===activeGalleryFilter?'active':''}" onclick="setGalleryFilter('${c.replace(/'/g,"\\'")}')">${c}</button>
+  `).join('');
+  const list = activeGalleryFilter==='All' ? DATA.gallery : DATA.gallery.filter(g=>g.category===activeGalleryFilter);
+  document.getElementById('galleryGrid').innerHTML = list.map(g=>`
+    <div class="gallery-item" onclick="openLightbox(${g.seed}, '${g.category}')">
+      ${placeholderSVG(g.seed, 400, 300+((g.seed*37)%180), '')}
+      <div class="gcap"><span>${g.category}</span></div>
+    </div>
+  `).join('') || emptyStateHTML('No images in this category yet.');
+}
+function setGalleryFilter(c){ activeGalleryFilter = c; renderGalleryPage(); }
+
+function emptyStateHTML(msg){
+  return `<div class="empty-state" style="grid-column:1/-1;">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 12h8M12 8v8"></path></svg>
+    <p>${msg}</p>
+  </div>`;
+}
+
+function openLightbox(seed, cap){
+  document.getElementById('lightboxImg').innerHTML = placeholderSVG(seed, 800, 560, '');
+  document.getElementById('lightboxCap').textContent = cap || '';
+  document.getElementById('lightbox').classList.add('open');
+}
+function openLightboxFromProject(id){
+  const p = DATA.projects.find(x=>x.id===id);
+  if(!p) return;
+  openLightbox(p.seed, `${p.name} — ${p.location}`);
+}
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
+
+function renderContactPage(){
+  const c = DATA.contact;
+  document.getElementById('contactInfoList').innerHTML = `
+    <div class="contact-info-card">
+      <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      <div><h5>Office Address</h5><p>${c.address}</p></div>
+    </div>
+    <div class="contact-info-card">
+      <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      <div><h5>Contractor</h5><p>${c.contractor}</p></div>
+    </div>
+    <div class="contact-info-card">
+      <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <div><h5>Phone</h5><p>${c.phone}</p></div>
+    </div>
+    <div class="contact-info-card">
+      <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"></path><path d="M22 6l-10 7L2 6"></path></svg>
+      <div><h5>Email</h5><p>${c.email}</p></div>
+    </div>
+  `;
+  const waLink = `https://wa.me/${c.whatsapp.replace(/[^0-9]/g,'')}`;
+  document.getElementById('contactQuickBtns').innerHTML = `
+    <a href="tel:${c.phone.replace(/\s/g,'')}" class="btn btn-primary btn-sm">Click to Call</a>
+    <a href="${waLink}" class="btn btn-outline btn-sm">WhatsApp Chat</a>
+    <a href="mailto:${c.email}" class="btn btn-outline btn-sm">Send Email</a>
+  `;
+  document.getElementById('mapFrame').src = c.maps;
+}
+
+/* ============================================================
+   PAGE NAVIGATION (public)
+   ============================================================ */
+function goTo(page){
+  document.querySelectorAll('[id^="page-"]').forEach(el=>el.classList.add('hidden-page'));
+  document.querySelectorAll('[id^="page-"]').forEach(el=>el.classList.remove('visible-page'));
+  const target = document.getElementById('page-'+page);
+  if(target){ target.classList.remove('hidden-page'); target.classList.add('visible-page'); }
+  document.querySelectorAll('nav a[data-page]').forEach(a=>a.classList.toggle('active', a.dataset.page===page));
+  window.scrollTo({top:0, behavior:'instant' in document.documentElement.style ? 'instant':'auto'});
+  document.getElementById('mobileNav').classList.remove('open');
+  setTimeout(runRevealObserver, 50);
+  history.replaceState(null,'','#'+page);
+}
+document.addEventListener('click', function(e){
+  const a = e.target.closest('a[data-page]');
+  if(a){ e.preventDefault(); goTo(a.dataset.page); }
+});
+
+function toggleServiceDetail(headEl){
+  const parent = headEl.closest('.service-detail');
+  parent.classList.toggle('open');
+}
+
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+function applyTheme(t){
+  document.body.setAttribute('data-theme', t);
+  localStorage.setItem('shriTheme', t);
+}
+document.getElementById('themeToggle').addEventListener('click', function(){
+  const cur = document.body.getAttribute('data-theme');
+  applyTheme(cur==='light' ? 'dark' : 'light');
+});
+(function initTheme(){
+  const saved = localStorage.getItem('shriTheme');
+  applyTheme(saved || 'light');
+})();
+
+/* ============================================================
+   MOBILE NAV
+   ============================================================ */
+document.getElementById('hamburgerBtn').addEventListener('click', function(){
+  document.getElementById('mobileNav').classList.toggle('open');
+});
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+function runRevealObserver(){
+  const els = document.querySelectorAll('.reveal:not(.in)');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('in'); obs.unobserve(entry.target); }
+    });
+  }, {threshold:0.12});
+  els.forEach(el=>obs.observe(el));
+}
+
+/* Back to top + header shrink */
+window.addEventListener('scroll', function(){
+  document.getElementById('backTop').classList.toggle('show', window.scrollY>500);
+});
+document.getElementById('backTop').addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ============================================================
+   CONTACT FORM
+   ============================================================ */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('cf-name').value.trim();
+  const phone = document.getElementById('cf-phone').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const message = document.getElementById('cf-message').value.trim();
+  if(!name||!phone||!email||!message) return;
+  const newId = (DATA.messages.length ? Math.max(...DATA.messages.map(m=>m.id)) : 0)+1;
+  DATA.messages.unshift({id:newId, name, phone, email, message, date:new Date().toISOString().slice(0,10), read:false});
+  saveData(DATA);
+  document.getElementById('formSuccessMsg').style.display='block';
+  this.reset();
+  setTimeout(()=>{ document.getElementById('formSuccessMsg').style.display='none'; }, 5000);
+});
+
+/* ============================================================
+   ADMIN PANEL
+   ============================================================ */
+const ADMIN_USER = 'admin';
+const ADMIN_PASS = 'shri2026';
+
+function isAdminLoggedIn(){ return sessionStorage.getItem(SESSION_KEY) === 'true'; }
+
+function showAdminPanel(){
+  document.getElementById('publicRoot').style.display='none';
+  document.getElementById('adminRoot').style.display='block';
+  if(isAdminLoggedIn()){
+    document.getElementById('adminLoginScreen').style.display='none';
+    document.getElementById('adminDashboard').style.display='block';
+    renderAdminAll();
+  } else {
+    document.getElementById('adminLoginScreen').style.display='block';
+    document.getElementById('adminDashboard').style.display='none';
+    initContourCanvas('loginContour');
+  }
+}
+window.__exitAdmin = function(){
+  document.getElementById('adminRoot').style.display='none';
+  document.getElementById('publicRoot').style.display='block';
+  history.replaceState(null,'','#home');
+  goTo('home');
+};
+
+document.getElementById('adminLoginForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const u = document.getElementById('admin-user').value.trim();
+  const p = document.getElementById('admin-pass').value;
+  if(u===ADMIN_USER && p===ADMIN_PASS){
+    sessionStorage.setItem(SESSION_KEY,'true');
+    document.getElementById('loginError').style.display='none';
+    showAdminPanel();
+  } else {
+    document.getElementById('loginError').style.display='block';
+  }
+});
+document.getElementById('adminLogoutBtn').addEventListener('click', function(){
+  sessionStorage.removeItem(SESSION_KEY);
+  showAdminPanel();
+});
+
+/* sidebar nav */
+document.getElementById('adminNav').addEventListener('click', function(e){
+  const btn = e.target.closest('button[data-panel]');
+  if(!btn) return;
+  document.querySelectorAll('#adminNav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.admin-panel-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('panel-'+btn.dataset.panel).classList.add('active');
+  document.getElementById('adminPanelTitle').textContent = btn.textContent.trim();
+  document.getElementById('adminSidebar').classList.remove('open');
+});
+document.getElementById('adminMenuToggle').addEventListener('click', function(){
+  document.getElementById('adminSidebar').classList.toggle('open');
+});
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2400);
+}
+
+function renderAdminAll(){
+  renderOverview();
+  renderServicesAdmin();
+  renderProjectsAdmin();
+  renderGalleryAdmin();
+  renderTestiAdmin();
+  renderMessagesAdmin();
+  loadHomepageForm();
+  loadContactForm();
+  loadSeoForm();
+}
+
+function renderOverview(){
+  const unread = DATA.messages.filter(m=>!m.read).length;
+  document.getElementById('msgBadge').textContent = unread>0 ? unread : '';
+  document.getElementById('overviewStats').innerHTML = `
+    <div class="stat-card"><div class="n">${DATA.services.filter(s=>s.visible).length}</div><div class="l">Active Services</div></div>
+    <div class="stat-card"><div class="n">${DATA.projects.length}</div><div class="l">Total Projects</div></div>
+    <div class="stat-card"><div class="n">${DATA.gallery.length}</div><div class="l">Gallery Images</div></div>
+    <div class="stat-card"><div class="n">${unread}</div><div class="l">Unread Messages</div></div>
+  `;
+  const recent = DATA.messages.slice(0,5);
+  document.getElementById('overviewMsgTable').querySelector('tbody').innerHTML = recent.map(m=>`
+    <tr><td>${escapeHtml(m.name)}</td><td>${escapeHtml(truncate(m.message,50))}</td><td><span class="pill ${m.read?'off':'new'}">${m.read?'Read':'New'}</span></td></tr>
+  `).join('') || `<tr><td colspan="3" style="text-align:center;color:#8DA093;">No inquiries yet.</td></tr>`;
+}
+
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/* ---------- Services admin ---------- */
+function renderServicesAdmin(){
+  document.getElementById('servicesTableBody').innerHTML = DATA.services.map(s=>`
+    <tr>
+      <td>${escapeHtml(s.name)}</td>
+      <td style="font-family:var(--mono);font-size:11px;color:#8DA093;">${escapeHtml(s.tag)}</td>
+      <td><span class="pill ${s.visible?'on':'off'}">${s.visible?'Visible':'Hidden'}</span></td>
+      <td><div class="row-actions">
+        <button class="icon-action" title="Edit" onclick="openServiceForm(${s.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z"></path></svg></button>
+        <button class="icon-action" title="${s.visible?'Hide':'Show'}" onclick="toggleServiceVisible(${s.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${s.visible?'<path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.8 21.8 0 0 1 5.06-6.06M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a21.8 21.8 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>':'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>'}</svg></button>
+        <button class="icon-action danger" title="Delete" onclick="deleteService(${s.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"></path></svg></button>
+      </div></td>
+    </tr>
+  `).join('');
+}
+function toggleServiceVisible(id){
+  const s = DATA.services.find(x=>x.id===id); if(!s) return;
+  s.visible = !s.visible; saveData(DATA); renderServicesAdmin(); renderAll(); toast(s.visible? 'Service shown':'Service hidden');
+}
+function deleteService(id){
+  if(!confirm('Delete this service? This cannot be undone.')) return;
+  DATA.services = DATA.services.filter(x=>x.id!==id);
+  saveData(DATA); renderServicesAdmin(); renderAll(); toast('Service deleted');
+}
+function openServiceForm(id){
+  const editing = id ? DATA.services.find(x=>x.id===id) : null;
+  const card = document.getElementById('serviceFormCard');
+  card.style.display='block';
+  card.innerHTML = `
+    <h3>${editing?'Edit Service':'Add Service'}</h3>
+    <div class="admin-grid-2">
+      <div class="admin-form-group"><label>Service Name</label><input type="text" id="sf-name" value="${editing?escapeHtml(editing.name):''}"></div>
+      <div class="admin-form-group"><label>Tag</label><input type="text" id="sf-tag" value="${editing?escapeHtml(editing.tag):''}"></div>
+    </div>
+    <div class="admin-form-group"><label>Description</label><textarea id="sf-desc">${editing?escapeHtml(editing.desc):''}</textarea></div>
+    <div class="admin-form-group"><label>Benefits (one per line)</label><textarea id="sf-benefits">${editing?editing.benefits.join('\n'):''}</textarea></div>
+    <div class="form-actions">
+      <button class="btn-admin ghost" onclick="document.getElementById('serviceFormCard').style.display='none'">Cancel</button>
+      <button class="btn-admin primary" onclick="saveServiceForm(${editing?editing.id:'null'})">Save Service</button>
+    </div>
+  `;
+  card.scrollIntoView({behavior:'smooth', block:'center'});
+}
+function saveServiceForm(id){
+  const name = document.getElementById('sf-name').value.trim();
+  const tag = document.getElementById('sf-tag').value.trim().toUpperCase();
+  const desc = document.getElementById('sf-desc').value.trim();
+  const benefits = document.getElementById('sf-benefits').value.split('\n').map(x=>x.trim()).filter(Boolean);
+  if(!name){ toast('Service name is required'); return; }
+  if(id){
+    const s = DATA.services.find(x=>x.id===id);
+    Object.assign(s, {name, tag, desc, benefits});
+  } else {
+    const newId = (DATA.services.length ? Math.max(...DATA.services.map(x=>x.id)) : 0)+1;
+    DATA.services.push({id:newId, name, tag, desc, benefits, visible:true, faqs:[]});
+  }
+  saveData(DATA);
+  document.getElementById('serviceFormCard').style.display='none';
+  renderServicesAdmin(); renderAll();
+  toast('Service saved');
+}
+
+/* ---------- Projects admin ---------- */
+function renderProjectsAdmin(){
+  document.getElementById('projectsTableBody').innerHTML = DATA.projects.map(p=>`
+    <tr>
+      <td>${escapeHtml(p.name)}</td>
+      <td style="font-family:var(--mono);font-size:11px;color:#8DA097;">${escapeHtml(p.category)}</td>
+      <td>${escapeHtml(p.location)}</td>
+      <td style="font-family:var(--mono);font-size:11px;">${formatDate(p.date)}</td>
+      <td><div class="row-actions">
+        <button class="icon-action" title="Edit" onclick="openProjectForm(${p.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z"></path></svg></button>
+        <button class="icon-action danger" title="Delete" onclick="deleteProject(${p.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"></path></svg></button>
+      </div></td>
+    </tr>
+  `).join('');
+}
+function deleteProject(id){
+  if(!confirm('Delete this project?')) return;
+  DATA.projects = DATA.projects.filter(x=>x.id!==id);
+  saveData(DATA); renderProjectsAdmin(); renderAll(); toast('Project deleted');
+}
+function openProjectForm(id){
+  const editing = id ? DATA.projects.find(x=>x.id===id) : null;
+  const card = document.getElementById('projectFormCard');
+  card.style.display='block';
+  card.innerHTML = `
+    <h3>${editing?'Edit Project':'Add Project'}</h3>
+    <div class="admin-grid-2">
+      <div class="admin-form-group"><label>Project Name</label><input type="text" id="pf-name" value="${editing?escapeHtml(editing.name):''}"></div>
+      <div class="admin-form-group"><label>Category</label>
+        <select id="pf-category">
+          ${['Land Survey','Layout Plan','Architectural Plan','NA Land'].map(c=>`<option value="${c}" ${editing&&editing.category===c?'selected':''}>${c}</option>`).join('')}
+        </select>
+      </div>
+      <div class="admin-form-group"><label>Location</label><input type="text" id="pf-location" value="${editing?escapeHtml(editing.location):''}"></div>
+      <div class="admin-form-group"><label>Completion Date</label><input type="month" id="pf-date" value="${editing?editing.date:''}"></div>
+    </div>
+    <div class="admin-form-group"><label>Description</label><textarea id="pf-desc">${editing?escapeHtml(editing.desc):''}</textarea></div>
+    <div class="admin-form-group"><label>Project Images</label>
+      <div class="file-drop" onclick="this.nextElementSibling.click()">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5M12 3v12"></path></svg>
+        Click to upload images (demo — generates a placeholder)
+      </div>
+      <input type="file" accept="image/*" multiple style="display:none;" onchange="handleDemoUpload(this)">
+      <div class="thumb-row" id="pf-thumbs">${placeholderThumb(editing?editing.seed:Math.ceil(Math.random()*999))}</div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-admin ghost" onclick="document.getElementById('projectFormCard').style.display='none'">Cancel</button>
+      <button class="btn-admin primary" onclick="saveProjectForm(${editing?editing.id:'null'}, ${editing?editing.seed:Math.ceil(Math.random()*999)})">Save Project</button>
+    </div>
+  `;
+  card.scrollIntoView({behavior:'smooth', block:'center'});
+}
+function placeholderThumb(seed){
+  return `<div class="th">${placeholderSVG(seed,64,64,'')}</div>`;
+}
+function handleDemoUpload(input){
+  toast('Demo mode: image accepted (not stored to a real server)');
+}
+function saveProjectForm(id, seed){
+  const name = document.getElementById('pf-name').value.trim();
+  const category = document.getElementById('pf-category').value;
+  const location = document.getElementById('pf-location').value.trim();
+  const date = document.getElementById('pf-date').value || new Date().toISOString().slice(0,7);
+  const desc = document.getElementById('pf-desc').value.trim();
+  if(!name){ toast('Project name is required'); return; }
+  if(id){
+    const p = DATA.projects.find(x=>x.id===id);
+    Object.assign(p, {name, category, location, date, desc});
+  } else {
+    const newId = (DATA.projects.length ? Math.max(...DATA.projects.map(x=>x.id)) : 0)+1;
+    DATA.projects.unshift({id:newId, name, category, location, date, desc, seed});
+  }
+  saveData(DATA);
+  document.getElementById('projectFormCard').style.display='none';
+  renderProjectsAdmin(); renderAll();
+  toast('Project saved');
+}
+
+/* ---------- Gallery admin ---------- */
+function renderGalleryAdmin(){
+  document.getElementById('galleryAdminGrid').innerHTML = DATA.gallery.map(g=>`
+    <div style="position:relative;border:1px solid rgba(198,161,91,0.2);border-radius:6px;overflow:hidden;">
+      <div style="aspect-ratio:1/1;">${placeholderSVG(g.seed,200,200,'')}</div>
+      <div style="padding:8px;background:rgba(255,255,255,0.03);">
+        <div style="font-size:11px;font-family:var(--mono);color:#B9C2BB;margin-bottom:6px;">${escapeHtml(g.category)}</div>
+        <button class="icon-action danger" style="width:100%;" onclick="deleteGalleryImg(${g.id})">Delete</button>
+      </div>
+    </div>
+  `).join('') || `<div style="color:#8DA093;">No images yet.</div>`;
+}
+function deleteGalleryImg(id){
+  if(!confirm('Delete this image?')) return;
+  DATA.gallery = DATA.gallery.filter(x=>x.id!==id);
+  saveData(DATA); renderGalleryAdmin(); renderAll(); toast('Image deleted');
+}
+function openGalleryForm(){
+  const card = document.getElementById('galleryFormCard');
+  card.style.display='block';
+  card.innerHTML = `
+    <h3>Add Gallery Image</h3>
+    <div class="admin-form-group"><label>Category</label>
+      <select id="gf-category">
+        ${['Field Survey','Layout Plan','Architecture','NA Documentation'].map(c=>`<option value="${c}">${c}</option>`).join('')}
+      </select>
+    </div>
+    <div class="admin-form-group"><label>Image</label>
+      <div class="file-drop" onclick="toast('Demo mode: image accepted (not stored to a real server)')">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5M12 3v12"></path></svg>
+        Click to upload (demo — generates a placeholder)
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-admin ghost" onclick="document.getElementById('galleryFormCard').style.display='none'">Cancel</button>
+      <button class="btn-admin primary" onclick="saveGalleryForm()">Add Image</button>
+    </div>
+  `;
+  card.scrollIntoView({behavior:'smooth', block:'center'});
+}
+function saveGalleryForm(){
+  const category = document.getElementById('gf-category').value;
+  const newId = (DATA.gallery.length ? Math.max(...DATA.gallery.map(x=>x.id)) : 0)+1;
+  DATA.gallery.unshift({id:newId, category, seed: Math.ceil(Math.random()*999)});
+  saveData(DATA);
+  document.getElementById('galleryFormCard').style.display='none';
+  renderGalleryAdmin(); renderAll();
+  toast('Image added');
+}
+
+/* ---------- Testimonials admin ---------- */
+function renderTestiAdmin(){
+  document.getElementById('testiTableBody').innerHTML = DATA.testimonials.map(t=>`
+    <tr>
+      <td>${escapeHtml(t.name)}</td>
+      <td style="font-family:var(--mono);font-size:11px;color:#8DA093;">${escapeHtml(t.role)}</td>
+      <td>${escapeHtml(truncate(t.quote,60))}</td>
+      <td><div class="row-actions">
+        <button class="icon-action" title="Edit" onclick="openTestiForm(${t.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z"></path></svg></button>
+        <button class="icon-action danger" title="Delete" onclick="deleteTesti(${t.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"></path></svg></button>
+      </div></td>
+    </tr>
+  `).join('');
+}
+function deleteTesti(id){
+  if(!confirm('Delete this testimonial?')) return;
+  DATA.testimonials = DATA.testimonials.filter(x=>x.id!==id);
+  saveData(DATA); renderTestiAdmin(); renderAll(); toast('Testimonial deleted');
+}
+function openTestiForm(id){
+  const editing = id ? DATA.testimonials.find(x=>x.id===id) : null;
+  const card = document.getElementById('testiFormCard');
+  card.style.display='block';
+  card.innerHTML = `
+    <h3>${editing?'Edit Testimonial':'Add Testimonial'}</h3>
+    <div class="admin-grid-2">
+      <div class="admin-form-group"><label>Client Name</label><input type="text" id="tf-name" value="${editing?escapeHtml(editing.name):''}"></div>
+      <div class="admin-form-group"><label>Role / Title</label><input type="text" id="tf-role" value="${editing?escapeHtml(editing.role):''}"></div>
+    </div>
+    <div class="admin-form-group"><label>Quote</label><textarea id="tf-quote">${editing?escapeHtml(editing.quote):''}</textarea></div>
+    <div class="form-actions">
+      <button class="btn-admin ghost" onclick="document.getElementById('testiFormCard').style.display='none'">Cancel</button>
+      <button class="btn-admin primary" onclick="saveTestiForm(${editing?editing.id:'null'})">Save Testimonial</button>
+    </div>
+  `;
+  card.scrollIntoView({behavior:'smooth', block:'center'});
+}
+function saveTestiForm(id){
+  const name = document.getElementById('tf-name').value.trim();
+  const role = document.getElementById('tf-role').value.trim();
+  const quote = document.getElementById('tf-quote').value.trim();
+  if(!name||!quote){ toast('Name and quote are required'); return; }
+  if(id){
+    const t = DATA.testimonials.find(x=>x.id===id);
+    Object.assign(t, {name, role, quote});
+  } else {
+    const newId = (DATA.testimonials.length ? Math.max(...DATA.testimonials.map(x=>x.id)) : 0)+1;
+    DATA.testimonials.push({id:newId, name, role, quote});
+  }
+  saveData(DATA);
+  document.getElementById('testiFormCard').style.display='none';
+  renderTestiAdmin(); renderAll();
+  toast('Testimonial saved');
+}
+
+/* ---------- Messages admin ---------- */
+function renderMessagesAdmin(){
+  document.getElementById('messagesTableBody').innerHTML = DATA.messages.map(m=>`
+    <tr class="admin-msg-row ${m.read?'':'unread'}" onclick="openMsgModal(${m.id})">
+      <td>${escapeHtml(m.name)}</td>
+      <td style="font-family:var(--mono);font-size:11px;">${escapeHtml(m.phone)}<br>${escapeHtml(m.email)}</td>
+      <td>${escapeHtml(truncate(m.message,45))}</td>
+      <td><span class="pill ${m.read?'off':'new'}">${m.read?'Read':'New'}</span></td>
+      <td><div class="row-actions" onclick="event.stopPropagation()">
+        <button class="icon-action danger" title="Delete" onclick="deleteMessage(${m.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"></path></svg></button>
+      </div></td>
+    </tr>
+  `).join('') || `<tr><td colspan="5" style="text-align:center;color:#8DA093;">No inquiries yet.</td></tr>`;
+}
+let activeMsgId = null;
+function openMsgModal(id){
+  const m = DATA.messages.find(x=>x.id===id); if(!m) return;
+  activeMsgId = id;
+  if(!m.read){ m.read = true; saveData(DATA); renderMessagesAdmin(); renderOverview(); }
+  document.getElementById('msgModalName').textContent = m.name;
+  document.getElementById('msgModalMeta').textContent = `${m.phone} · ${m.email} · ${m.date}`;
+  document.getElementById('msgModalBody').textContent = m.message;
+  document.getElementById('msgModalOverlay').classList.add('open');
+}
+function closeMsgModal(){ document.getElementById('msgModalOverlay').classList.remove('open'); }
+function deleteMessage(id){
+  if(!confirm('Delete this message?')) return;
+  DATA.messages = DATA.messages.filter(x=>x.id!==id);
+  saveData(DATA); renderMessagesAdmin(); renderOverview(); toast('Message deleted');
+}
+function deleteMessageFromModal(){
+  if(activeMsgId==null) return;
+  deleteMessage(activeMsgId);
+  closeMsgModal();
+}
+
+/* ---------- Homepage admin ---------- */
+function loadHomepageForm(){
+  document.getElementById('hp-title').value = DATA.homepage.title;
+  document.getElementById('hp-subtitle').value = DATA.homepage.subtitle;
+  document.getElementById('hp-stats-grid').innerHTML = DATA.homepage.stats.map((s,i)=>`
+    <div class="admin-form-group"><label>Stat ${i+1} (number / suffix / label)</label>
+      <div style="display:flex;gap:6px;">
+        <input type="text" style="width:70px;" value="${escapeHtml(s.num)}" id="hp-stat-num-${i}">
+        <input type="text" style="width:50px;" value="${escapeHtml(s.suffix||'')}" id="hp-stat-suf-${i}">
+        <input type="text" value="${escapeHtml(s.label)}" id="hp-stat-lbl-${i}">
+      </div>
+    </div>
+  `).join('');
+}
+function saveHomepage(){
+  DATA.homepage.title = document.getElementById('hp-title').value.trim();
+  DATA.homepage.subtitle = document.getElementById('hp-subtitle').value.trim();
+  DATA.homepage.stats = DATA.homepage.stats.map((s,i)=>({
+    num: document.getElementById(`hp-stat-num-${i}`).value.trim(),
+    suffix: document.getElementById(`hp-stat-suf-${i}`).value.trim(),
+    label: document.getElementById(`hp-stat-lbl-${i}`).value.trim()
+  }));
+  saveData(DATA);
+  renderAll();
+  toast('Homepage content saved');
+}
+
+/* ---------- Contact info admin ---------- */
+function loadContactForm(){
+  document.getElementById('ci-address').value = DATA.contact.address;
+  document.getElementById('ci-contractor').value = DATA.contact.contractor;
+  document.getElementById('ci-phone').value = DATA.contact.phone;
+  document.getElementById('ci-whatsapp').value = DATA.contact.whatsapp;
+  document.getElementById('ci-email').value = DATA.contact.email;
+  document.getElementById('ci-maps').value = DATA.contact.maps;
+}
+function saveContactInfo(){
+  DATA.contact.address = document.getElementById('ci-address').value.trim();
+  DATA.contact.contractor = document.getElementById('ci-contractor').value.trim();
+  DATA.contact.phone = document.getElementById('ci-phone').value.trim();
+  DATA.contact.whatsapp = document.getElementById('ci-whatsapp').value.trim();
+  DATA.contact.email = document.getElementById('ci-email').value.trim();
+  DATA.contact.maps = document.getElementById('ci-maps').value.trim();
+  saveData(DATA);
+  renderAll();
+  toast('Contact info saved');
+}
+
+/* ---------- SEO admin ---------- */
+function loadSeoForm(){
+  document.getElementById('seo-title').value = DATA.seo.title;
+  document.getElementById('seo-desc').value = DATA.seo.desc;
+  document.getElementById('seo-keywords').value = DATA.seo.keywords;
+}
+function saveSeo(){
+  DATA.seo.title = document.getElementById('seo-title').value.trim();
+  DATA.seo.desc = document.getElementById('seo-desc').value.trim();
+  DATA.seo.keywords = document.getElementById('seo-keywords').value.trim();
+  saveData(DATA);
+  renderAll();
+  toast('SEO settings saved');
+}
+
+/* ============================================================
+   ROUTER — detect #admin vs public pages
+   ============================================================ */
+function routeFromHash(){
+  const hash = location.hash.replace('#','');
+  if(hash==='admin'){
+    showAdminPanel();
+  } else {
+    document.getElementById('adminRoot').style.display='none';
+    document.getElementById('publicRoot').style.display='block';
+    const valid = ['home','about','services','projects','gallery','contact'];
+    goTo(valid.includes(hash) ? hash : 'home');
+  }
+}
+window.addEventListener('hashchange', routeFromHash);
+
+/* Secret admin entry: small link in footer bottom */
+document.addEventListener('DOMContentLoaded', function(){
+  const fb = document.querySelector('.footer-bottom');
+  if(fb){
+    const link = document.createElement('a');
+    link.href = '#admin';
+    link.textContent = 'Admin';
+    link.style.opacity = '0.4';
+    link.style.fontFamily = 'var(--mono)';
+    link.style.fontSize = '11px';
+    fb.appendChild(link);
+  }
+});
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init(){
+  renderAll();
+  initContourCanvas('contourCanvas');
+  runRevealObserver();
+  routeFromHash();
+  setTimeout(()=>{
+    document.getElementById('preloader').classList.add('hide');
+  }, 700);
+}
+init();
+</script>
+</body>
+</html>
